@@ -36,6 +36,7 @@ Name: "custom"; Description: "{cm:customInstall}"; Flags: iscustom
 Name: "Patch"; Description: "Patch and free DLC v1.1 by Illusion + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
 
 Name: "BepInEx"; Description: "BepInEx v2018 x64 5.0.0.133 Unity plugin framework"; Types: full_en full extra custom bare; Flags: fixed 
+Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
 
 Name: "EC_CorePlugins"; Description: "EC_CorePlugins v1.0"; Types: full_en full extra custom bare; Flags: fixed
 Name: "ECAPI"; Description: "ECAPI v1.3.1 (Modding API needed by many plugins)"; Types: full_en full extra custom bare; Flags: fixed
@@ -46,15 +47,13 @@ Name: "TL"; Description: "{cm:CompTL}"; Types: full_en extra
 
 Name: "TL\AutoTranslator"; Description: "XUnity.AutoTranslator 3.4.0"; Types: full_en extra
 Name: "TL\AutoTranslator\EnglishTranslation"; Description: "ManlyMarco/EmotionCreatorsTranslation v1.0"; Types: full_en extra
-Name: "TL\EnglishLauncher"; Description: "English Launchers v1.0 by user539"; Types: full_en extra
+Name: "TL\EnglishLauncher"; Description: "English Launcher v1.0"; Types: full_en extra
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Name: "UNC"; Description: "{cm:CompUNC}"; Types: full_en full extra
-
-Name: "UNC\Demosaic"; Description: "EC_Demosaic v1.1"; Types: full_en full extra
-Name: "UNC\Female"; Description: "Female Uncensor SAC_Innie"; Types: full_en full extra
-Name: "UNC\Male"; Description: "Male Uncensor KK_LO_pussy_v0.5"; Types: full_en full extra
+Name: "UNC\Selector"; Description: "Uncensor Selector v3.6"; Types: full_en full extra
+Name: "UNC\Selector\Pack"; Description: "Uncensor pack 07/05/2019"; Types: full_en full extra
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -100,10 +99,11 @@ Source: "Input\_Patch\emocre_01_plus_fs0426\*"; DestDir: "{app}"; Flags: ignorev
 
 Source: "Input\BepInEx\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak createallsubdirs; Components: BepInEx
 Source: "Input\BepInEx.cfg"; DestDir: "{app}\BepInEx\config\"; Flags: ignoreversion; Components: BepInEx; Check: not FileExists(ExpandConstant('{app}\BepInEx\config\BepInEx.cfg'))
+Source: "Input\BepInEx_Dev\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev;
 
 Source: "Input\EC_CorePlugins\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: EC_CorePlugins
 
-Source: "Input\ECAPI.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: ECAPI
+Source: "Input\ECAPI.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion; Components: ECAPI
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -115,9 +115,8 @@ Source: "Input\_TL\InitSettingEN.exe"; DestDir: "{app}"; Flags: ignoreversion re
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Uncensor\EC_Demosaic\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: UNC\Demosaic
-Source: "Input\_Uncensor\FemaleSAC_Innie.zipmod"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: UNC\Female
-Source: "Input\_Uncensor\MaleUncensorKK_LO_pussy_v0.5.zipmod"; DestDir: "{app}\mods\Uncensors and body mods"; Flags: ignoreversion recursesubdirs; Components: UNC\Male
+Source: "Input\_Uncensor\KK_UncensorSelector\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: UNC\Selector
+Source: "Input\_Uncensor\Uncensors and body mods\*"; DestDir: "{app}\mods\Uncensors and body mods"; Flags: ignoreversion recursesubdirs; Components: UNC\Selector\Pack
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -127,7 +126,7 @@ Source: "Input\_Content\[EC]Sideloader Modpack\*"; DestDir: "{app}"; Flags: igno
 
 Source: "Input\_Content\EC_HairAccessoryCustomizer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\EC_HairAccessoryCustomizer
 
-Source: "Input\_Content\ECABMX.dll"; DestDir: "{app}}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: Content\KKABMX
+Source: "Input\_Content\ECABMX.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: Content\KKABMX
 Source: "Input\_Content\EC.OverlayMods.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: Content\KSOX
 Source: "Input\_Content\EC_InvisibleBody\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Content\EC_InvisibleBody
 
@@ -142,7 +141,7 @@ Source: "Input\_Content\EC_InvisibleBody\*"; DestDir: "{app}"; Flags: ignorevers
 ;Source: "Input\_Feature\KK_ClothesLoadOption.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_ClothesLoadOption
 ;Source: "Input\_Feature\KK_BetterColorPicker\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\KK_BetterColorPicker
 
-Source: "Input\_Feature\EC_RemoveToRecycleBin.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\EC_RemoveToRecycleBin
+Source: "Input\_Feature\EC_RemoveToRecycleBin.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion; Components: Feature\EC_RemoveToRecycleBin
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -172,7 +171,9 @@ Type: files; Name: "{app}\manifest.xml"
 Type: files; Name: "{app}\mods\atari2.1 (normal bust).zipmod"
 
 ; Clean up old uncensors
-Type: filesandordirs; Name: "{app}\mods\Uncensor"
+Type: filesandordirs; Name: "{app}\mods\Uncensor"; Components: UNC\Selector
+Type: filesandordirs; Name: "{app}\mods\EC_UncensorSelector Base.zipmod"; Components: UNC\Selector
+Type: filesandordirs; Name: "{app}\mods\Uncensors and body mods"; Components: UNC\Selector
 
 ; Clean dlls completely to fix problems with copied/unnecessary/old dlls. All dlls are included in the patch data
 Type: filesandordirs; Name: "{app}\EmotionCreators_Data\Managed"; Components: Patch
@@ -303,7 +304,6 @@ begin
     ShowExceptionMessage();
   end;
   
-  // Remove BepInEx folder
   if (IsTaskSelected('delete\Plugins')) then
     DelTree(ExpandConstant('{app}\BepInEx\plugins'), True, True, True);
   
@@ -316,5 +316,9 @@ begin
   if (IsTaskSelected('delete\Listfiles')) then
     RemoveNonstandardListfiles(ExpandConstant('{app}'));
       
+  // Remove BepInEx folder when all tasks concerning it are checked
+  if (IsTaskSelected('delete\Config') and IsTaskSelected('delete\Plugins')) then
+    DelTree(ExpandConstant('{app}\BepInEx'), True, True, True);
+    
   SetConfigDefaults(ExpandConstant('{app}'));
 end;
