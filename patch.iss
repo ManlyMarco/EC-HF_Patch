@@ -1,7 +1,7 @@
 ﻿;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "EmotionCreators"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "1.0"
+#define VERSION "1.1"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -14,7 +14,7 @@ Compression=lzma2/ultra64
 LZMAUseSeparateProcess=yes
 LZMADictionarySize=208576
 LZMANumFastBytes=273
-LZMANumBlockThreads=3
+LZMANumBlockThreads=2
 DiskSpanning=yes
 DefaultDirName={reg:HKCU\Software\Illusion\emotioncreators\emotioncreators,INSTALLDIR}
 
@@ -33,40 +33,42 @@ Name: "none"; Description: "{cm:noneInstall}"
 Name: "custom"; Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
-Name: "Patch"; Description: "Patch and free DLC v1.1 by Illusion + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
+Name: "Patch"; Description: "Patch and free DLC 05/24 by Illusion + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
 
 Name: "BepInEx"; Description: "BepInEx v2018 x64 5.0.0.133 Unity plugin framework"; Types: full_en full extra custom bare; Flags: fixed 
 Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
 
-Name: "EC_CorePlugins"; Description: "EC_CorePlugins v1.0"; Types: full_en full extra custom bare; Flags: fixed
-Name: "ECAPI"; Description: "ECAPI v1.3.1 (Modding API needed by many plugins)"; Types: full_en full extra custom bare; Flags: fixed
+Name: "EC_CorePlugins"; Description: "EC_CorePlugins v1.1"; Types: full_en full extra custom bare; Flags: fixed
+Name: "ECAPI"; Description: "ECAPI v1.3.3 (Modding API needed by many plugins)"; Types: full_en full extra custom bare; Flags: fixed
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Name: "TL"; Description: "{cm:CompTL}"; Types: full_en extra
 
 Name: "TL\AutoTranslator"; Description: "XUnity.AutoTranslator 3.4.0"; Types: full_en extra
-Name: "TL\AutoTranslator\EnglishTranslation"; Description: "ManlyMarco/EmotionCreatorsTranslation v1.0"; Types: full_en extra
+Name: "TL\AutoTranslator\EnglishTranslation"; Description: "ManlyMarco/EmotionCreatorsTranslation v2.0"; Types: full_en extra
 Name: "TL\EnglishLauncher"; Description: "English Launcher v1.0"; Types: full_en extra
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Name: "UNC"; Description: "{cm:CompUNC}"; Types: full_en full extra
 Name: "UNC\Selector"; Description: "Uncensor Selector v3.6"; Types: full_en full extra
-Name: "UNC\Selector\Pack"; Description: "Uncensor pack 07/05/2019"; Types: full_en full extra
+Name: "UNC\Selector\Pack"; Description: "Uncensor pack 12/05/2019"; Types: full_en full extra
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Name: "Content"; Description: "Additional content for character and scene creation (Needed to properly load most character cards and scenes)"; Types: full_en full extra
 
 Name: "Content\ModpackEC"; Description: "Sideloader Modpack for EmotionCreators 01-5-2019 (Mods specially made for EC)"; Types: full_en full extra
-Name: "Content\Modpack"; Description: "Sideloader Modpack 01-5-2019 (Lots of additional content for making characters"; Types: full_en full extra
+Name: "Content\Modpack"; Description: "Sideloader Modpack 22-5-2019 (Lots of additional content for making characters"; Types: full_en full extra
 
+Name: "Content\EC_ClothingUnlocker"; Description: "EC_ClothingUnlocker v1.1 (can use female clothes on males)"; Types: full_en full extra
 Name: "Content\EC_HairAccessoryCustomizer"; Description: "EC_HairAccessoryCustomizer v1.0 (adds advanced controls for hair accessories)"; Types: full_en full extra
 
 Name: "Content\KKABMX"; Description: "ECABMX v3.1 (More sliders in maker)"; Types: full_en full extra
 Name: "Content\KSOX"; Description: "EmotionCreators Overlay Mods v4.2.1 (Custom body, clothes and eye textures)"; Types: full_en full extra
-Name: "Content\EC_InvisibleBody"; Description: "EC_InvisibleBody v1.2 (Hide character body)"; Types: full_en full extra
+Name: "Content\EC_InvisibleBody"; Description: "EC_InvisibleBody v1.2.1 (Hide character body)"; Types: full_en full extra
+Name: "Content\EC_RimRemover"; Description: "EC_RimRemover v1.0 (Can help make hair from KK look better)"; Types: full_en full extra
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -95,7 +97,7 @@ Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Patch\emocre_01_plus_fs0426\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
+Source: "Input\_Patch\emocre_01_plus_pd0524fgr_all\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
 
 Source: "Input\BepInEx\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak createallsubdirs; Components: BepInEx
 Source: "Input\BepInEx.cfg"; DestDir: "{app}\BepInEx\config\"; Flags: ignoreversion; Components: BepInEx; Check: not FileExists(ExpandConstant('{app}\BepInEx\config\BepInEx.cfg'))
@@ -124,11 +126,13 @@ Source: "..\..\KK\KK-HF_Patch\Input\_Content\[KK]Sideloader Modpack\*"; DestDir:
 ;Source: "Input\_Content\ModBoneImplantor.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\Modpack
 Source: "Input\_Content\[EC]Sideloader Modpack\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\ModpackEC
 
+Source: "Input\_Content\EC_ClothingUnlocker\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\EC_ClothingUnlocker
 Source: "Input\_Content\EC_HairAccessoryCustomizer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\EC_HairAccessoryCustomizer
 
 Source: "Input\_Content\ECABMX.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: Content\KKABMX
 Source: "Input\_Content\EC.OverlayMods.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: Content\KSOX
 Source: "Input\_Content\EC_InvisibleBody\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Content\EC_InvisibleBody
+Source: "Input\_Content\EC_RimRemover.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: Content\EC_RimRemover
 
 ;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
