@@ -14,7 +14,7 @@ namespace HelperLib
 {
     public class HelperLib
     {
-        private const string LogFileName = "HF_Patch.log";
+        private const string LogFileName = "HF_Patch_log.txt";
 
         private static void AppendLog(string targetDirectory, object message)
         {
@@ -27,22 +27,34 @@ namespace HelperLib
                 Console.WriteLine(e);
             }
         }
-        
-        private static readonly string GoodSettings =
-@"<?xml version=""1.0"" encoding=""utf-16""?>
-<Setting>
-  <Size>1280 x 720 (16 : 9)</Size>
-  <Width>1280</Width>
-  <Height>720</Height>
-  <Quality>2</Quality>
-  <FullScreen>false</FullScreen>
-  <Display>0</Display>
-  <Language>0</Language>
-</Setting>";
 
         [DllExport("SetConfigDefaults", CallingConvention = CallingConvention.StdCall)]
         public static void SetConfigDefaults([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
+
+        }
+
+        [DllExport("WriteVersionFile", CallingConvention = CallingConvention.StdCall)]
+        public static void WriteVersionFile([MarshalAs(UnmanagedType.LPWStr)] string path, [MarshalAs(UnmanagedType.LPWStr)] string version)
+        {
+            var verPath = Path.Combine(path, @"version");
+            try
+            {
+                var contents = File.Exists(verPath) ? File.ReadAllText(verPath).Trim() : string.Empty;
+
+                if (!string.IsNullOrEmpty(contents))
+                    contents += "; ";
+
+                contents += "HF Patch v" + version;
+
+                if (File.Exists(verPath)) File.SetAttributes(verPath, FileAttributes.Normal);
+                File.WriteAllText(verPath, contents);
+                File.SetAttributes(verPath, FileAttributes.Hidden | FileAttributes.Archive);
+            }
+            catch (Exception e)
+            {
+                AppendLog(path, "Failed trying to write version file: " + e);
+            }
         }
 
         [DllExport("FixConfig", CallingConvention = CallingConvention.StdCall)]
@@ -75,10 +87,8 @@ namespace HelperLib
                 try
                 {
                     File.Delete(ud);
-                    File.WriteAllText(ud, GoodSettings, Encoding.Unicode);
-
                     if (!(e is FileNotFoundException))
-                        AppendLog(path, @"Fixed corrupted " + ud + "; Cause:" + e.Message);
+                        AppendLog(path, @"Removed corrupted " + ud + "; Cause:" + e.Message);
                 }
                 catch { }
             }
@@ -96,7 +106,7 @@ namespace HelperLib
                     File.Delete(sysDir);
 
                     if (!(e is FileNotFoundException))
-                        AppendLog(path, @"Reset corrupted " + sysDir + Environment.NewLine + e + Environment.NewLine);
+                        AppendLog(path, @"Removed corrupted " + sysDir + Environment.NewLine + e + Environment.NewLine);
                 }
                 catch { }
             }
@@ -107,6 +117,89 @@ namespace HelperLib
             var val = int.Parse(instr);
             if (min > val || val > max)
                 throw new Exception();
+        }
+
+        [DllExport("CreateBackup", CallingConvention = CallingConvention.StdCall)]
+        public static void CreateBackup([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            try
+            {
+                var fullPath = Path.GetFullPath(path);
+                var filesToBackup = new List<string>();
+
+                var bepinPath = Path.Combine(fullPath, "BepInEx");
+                if (Directory.Exists(bepinPath))
+                    filesToBackup.AddRange(Directory.GetFiles(bepinPath, "*", SearchOption.AllDirectories));
+
+                var scriptsPath = Path.Combine(fullPath, "scripts");
+                if (Directory.Exists(scriptsPath))
+                    filesToBackup.AddRange(Directory.GetFiles(scriptsPath, "*", SearchOption.AllDirectories));
+
+                if (!filesToBackup.Any()) return;
+
+                using (var file = File.OpenWrite(Path.Combine(fullPath, $"Plugin_Backup_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")}.zip")))
+                using (var zip = new ZipArchive(file, ZipArchiveMode.Create, false, Encoding.UTF8))
+                {
+                    foreach (var toAdd in filesToBackup)
+                    {
+                        try
+                        {
+                            using (var toAddStream = File.OpenRead(toAdd))
+                            {
+                                var entry = zip.CreateEntry(toAdd.Substring(fullPath.Length + 1), CompressionLevel.Fastest);
+                                using (var entryStream = entry.Open())
+                                    toAddStream.CopyTo(entryStream);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            AppendLog(path, $"Failed to add file {toAdd} to backup - {ex}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AppendLog(path, $"Failed to create backup - {ex}");
+            }
+        }
+
+        [DllExport("RemoveModsExceptModpacks", CallingConvention = CallingConvention.StdCall)]
+        public static void RemoveModsExceptModpacks([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            try
+            {
+                var modsPath = Path.GetFullPath(Path.Combine(path, "mods"));
+                if (!Directory.Exists(modsPath)) return;
+
+                var acceptableDirs = new[]{
+                    "EC Sideloader Modpack",
+                    "EC Sideloader Modpack - EC_UncensorSelector",
+                    "EC Sideloader Modpack - Fixes",
+                    "Sideloader Modpack",
+                    "Sideloader Modpack - Compatibility Pack",
+                };
+
+                var fullAcceptableDirs = acceptableDirs.Select(s => Path.Combine(modsPath, s) + "\\").ToArray();
+
+                foreach (var file in Directory.GetFiles(modsPath, "*", SearchOption.AllDirectories))
+                {
+                    if (fullAcceptableDirs.Any(x => file.StartsWith(x, StringComparison.OrdinalIgnoreCase))) continue;
+
+                    try
+                    {
+                        File.Delete(file);
+                    }
+                    catch (Exception ex)
+                    {
+                        AppendLog(path, $"Failed to remove file {file} from mods directory - {ex}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AppendLog(path, $"Failed to remove old mods from the mods directory - {ex}");
+            }
         }
 
         [DllExport("RemoveJapaneseCards", CallingConvention = CallingConvention.StdCall)]
@@ -125,7 +218,7 @@ namespace HelperLib
                     foreach (var filePath in Directory.GetFiles(ld))
                     {
                         if (!IsStandardListFile(filePath))
-                            SafeFileDelete(filePath);
+                            SafeFileDelete(filePath, path);
                     }
                 }
 
@@ -135,7 +228,7 @@ namespace HelperLib
                     foreach (var filePath in Directory.GetFiles(hld))
                     {
                         if (!IsStandardHListFile(filePath))
-                            SafeFileDelete(filePath);
+                            SafeFileDelete(filePath, path);
                     }
                 }
             }
@@ -158,8 +251,8 @@ namespace HelperLib
                                      || FileHasZipmodExtension(file)
                                select file).ToList();
 
-                SideloaderCleanupByManifest(allMods);
-                SideloaderCleanupByFilename(allMods.Where(File.Exists));
+                SideloaderCleanupByManifest(allMods, path);
+                SideloaderCleanupByFilename(allMods.Where(File.Exists), path);
             }
             catch (Exception e)
             {
@@ -167,7 +260,7 @@ namespace HelperLib
             }
         }
 
-        private static void SideloaderCleanupByManifest(IEnumerable<string> allMods)
+        private static void SideloaderCleanupByManifest(IEnumerable<string> allMods, string path)
         {
             try
             {
@@ -210,7 +303,7 @@ namespace HelperLib
                     catch (SystemException)
                     {
                         // Kill it with fire
-                        SafeFileDelete(mod);
+                        SafeFileDelete(mod, path);
                     }
                 }
 
@@ -225,7 +318,7 @@ namespace HelperLib
                         .ThenByDescending(x => x.Path.Length);
 
                     foreach (var oldMod in orderedMods.Skip(1))
-                        SafeFileDelete(oldMod.Path);
+                        SafeFileDelete(oldMod.Path, path);
                 }
             }
             catch (Exception ex)
@@ -234,7 +327,7 @@ namespace HelperLib
             }
         }
 
-        private static void SideloaderCleanupByFilename(IEnumerable<string> allMods)
+        private static void SideloaderCleanupByFilename(IEnumerable<string> allMods, string path)
         {
             var modDuplicates = allMods.GroupBy(Path.GetFileNameWithoutExtension);
 
@@ -246,7 +339,7 @@ namespace HelperLib
                 var orderedVersions = modVersions.OrderByDescending(File.GetLastWriteTime)
                     .ThenByDescending(FileHasZipmodExtension);
                 foreach (var oldModPath in orderedVersions.Skip(1))
-                    SafeFileDelete(oldModPath);
+                    SafeFileDelete(oldModPath, path);
             }
         }
 
@@ -255,11 +348,12 @@ namespace HelperLib
             return fileName.EndsWith(".zipmod", StringComparison.OrdinalIgnoreCase);
         }
 
-        private static void SafeFileDelete(string file)
+        private static void SafeFileDelete(string file, string gamePath)
         {
             try
             {
                 File.Delete(file);
+                AppendLog(gamePath, "Removing " + file);
             }
             catch (SystemException)
             {
