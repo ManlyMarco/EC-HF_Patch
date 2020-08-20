@@ -42,10 +42,8 @@ You can use this patch to fix many broken game/mod installs.
 - There is no warranty on this patch or on any of the included mods. You are installing this patch at your own risk.
 
 ## Discussion and help
-- [Koikatsu! discord server](https://discord.gg/zS5vJYS)
-- [HongFire Koikatu! Discussion thread](http://www.hongfire.com/forum/forum/hentai-lair/hentai-game-discussion/5921249)
-- [Illusion Soft discord server](https://discord.gg/F3bDEFE)
-- [Koikatu Wiki (Gameplay and technical help)](https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu)
+- [Koikatsu!/EmotionCreators discord server](https://discord.gg/zS5vJYS)
+- [Koikatu Technical Help Wiki (Most of it applies to EC as well)](https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help)
 
 ## How to build
 Needs Visual Studio 2017 for the helper library and latest unicode Inno Setup compiler. All necessary mods have to be placed inside the Input directory to compile. Because of massive size, they are not included here.
