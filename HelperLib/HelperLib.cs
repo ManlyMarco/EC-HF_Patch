@@ -1,5 +1,15 @@
-﻿using System;
+﻿/*
+    Copyright (C) 2020  ManlyMarco
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+*/
+
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
@@ -40,15 +50,19 @@ namespace HelperLib
             var verPath = Path.Combine(path, @"version");
             try
             {
-                var contents = File.Exists(verPath) ? File.ReadAllText(verPath).Trim() : string.Empty;
+                //var contents = File.Exists(verPath) ? File.ReadAllText(verPath) : string.Empty;
+                //var versionList = contents.Split(';').Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToList();
+                //versionList.Add("HF Patch v" + version);
+                //
+                //var existingVersions = new HashSet<string>();
+                //// Only keep latest copy of any version, remove older duplicates
+                //var filteredVersionList = versionList.AsEnumerable().Reverse().Where(x => existingVersions.Add(x)).Reverse().ToArray();
+                //var result = string.Join("; ", filteredVersionList);
 
-                if (!string.IsNullOrEmpty(contents))
-                    contents += "; ";
-
-                contents += "HF Patch v" + version;
-
+                var result = "HF Patch v" + version;
+                // Prevent crash when overwriting hidden file
                 if (File.Exists(verPath)) File.SetAttributes(verPath, FileAttributes.Normal);
-                File.WriteAllText(verPath, contents);
+                File.WriteAllText(verPath, result);
                 File.SetAttributes(verPath, FileAttributes.Hidden | FileAttributes.Archive);
             }
             catch (Exception e)
@@ -106,7 +120,7 @@ namespace HelperLib
                     File.Delete(sysDir);
 
                     if (!(e is FileNotFoundException))
-                        AppendLog(path, @"Removed corrupted " + sysDir + Environment.NewLine + e + Environment.NewLine);
+                        AppendLog(path, @"Reset corrupted " + sysDir + Environment.NewLine + e + Environment.NewLine);
                 }
                 catch { }
             }
@@ -117,6 +131,30 @@ namespace HelperLib
             var val = int.Parse(instr);
             if (min > val || val > max)
                 throw new Exception();
+        }
+
+        [DllExport("FixPermissions", CallingConvention = CallingConvention.StdCall)]
+        public static void FixPermissions([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
+            var batContents = $@"
+title Fixing permissions... 
+rem Get the localized version of Y/N to pass to takeown to make this work in different locales
+for /f ""tokens=1,2 delims=[,]"" %%a in ('""choice <nul 2>nul""') do set ""yes=%%a"" & set ""no=%%b""
+echo Press %yes% for yes and %no% for no
+set target={ path.Trim(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar, ' ') }
+echo off
+cls
+echo Taking ownership of %target% ...
+rem First find is to filter out success messages, second findstr is to filter out empty lines
+takeown /F ""%target%"" /R /SKIPSL /D %yes% | find /V ""SUCCESS: The file (or folder):"" | findstr /r /v ""^$""
+echo.
+echo Fixing access rights ...
+icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
+";
+            var batPath = Path.Combine(Path.GetTempPath(), "hfpatch_fixperms.bat");
+            File.WriteAllText(batPath, batContents);
+
+            Process.Start(new ProcessStartInfo("cmd", $"/C \"{batPath}\"") { WindowStyle = ProcessWindowStyle.Hidden, CreateNoWindow = true });
         }
 
         [DllExport("CreateBackup", CallingConvention = CallingConvention.StdCall)]
@@ -134,6 +172,10 @@ namespace HelperLib
                 var scriptsPath = Path.Combine(fullPath, "scripts");
                 if (Directory.Exists(scriptsPath))
                     filesToBackup.AddRange(Directory.GetFiles(scriptsPath, "*", SearchOption.AllDirectories));
+
+                var patchworkPath = Path.Combine(fullPath, "plugins");
+                if (Directory.Exists(patchworkPath))
+                    filesToBackup.AddRange(Directory.GetFiles(patchworkPath, "*", SearchOption.AllDirectories));
 
                 if (!filesToBackup.Any()) return;
 
@@ -218,7 +260,7 @@ namespace HelperLib
                     foreach (var filePath in Directory.GetFiles(ld))
                     {
                         if (!IsStandardListFile(filePath))
-                            SafeFileDelete(filePath, path);
+                            SafeFileDelete(filePath);
                     }
                 }
 
@@ -228,7 +270,7 @@ namespace HelperLib
                     foreach (var filePath in Directory.GetFiles(hld))
                     {
                         if (!IsStandardHListFile(filePath))
-                            SafeFileDelete(filePath, path);
+                            SafeFileDelete(filePath);
                     }
                 }
             }
@@ -236,6 +278,11 @@ namespace HelperLib
             {
                 AppendLog(path, e);
             }
+        }
+
+        [DllExport("PostInstallCleanUp", CallingConvention = CallingConvention.StdCall)]
+        public static void PostInstallCleanUp([MarshalAs(UnmanagedType.LPWStr)] string path)
+        {
         }
 
         [DllExport("RemoveSideloaderDuplicates", CallingConvention = CallingConvention.StdCall)]
@@ -248,11 +295,12 @@ namespace HelperLib
 
                 var allMods = (from file in Directory.GetFiles(ld, "*", SearchOption.AllDirectories)
                                where file.EndsWith(".zip", StringComparison.OrdinalIgnoreCase)
+                                     || file.EndsWith(".zi_", StringComparison.OrdinalIgnoreCase)
                                      || FileHasZipmodExtension(file)
                                select file).ToList();
 
-                SideloaderCleanupByManifest(allMods, path);
-                SideloaderCleanupByFilename(allMods.Where(File.Exists), path);
+                SideloaderCleanupByManifest(allMods);
+                SideloaderCleanupByFilename(allMods.Where(File.Exists));
             }
             catch (Exception e)
             {
@@ -260,7 +308,7 @@ namespace HelperLib
             }
         }
 
-        private static void SideloaderCleanupByManifest(IEnumerable<string> allMods, string path)
+        private static void SideloaderCleanupByManifest(IEnumerable<string> allMods)
         {
             try
             {
@@ -303,22 +351,21 @@ namespace HelperLib
                     catch (SystemException)
                     {
                         // Kill it with fire
-                        SafeFileDelete(mod, path);
+                        SafeFileDelete(mod);
                     }
                 }
 
                 foreach (var modGroup in mods.GroupBy(x => x.Guid))
                 {
                     var orderedMods = modGroup.All(x => !string.IsNullOrWhiteSpace(x.Version))
-                        ? modGroup.OrderByDescending(x => x.Version, new VersionComparer())
-                        : modGroup.OrderByDescending(x => File.GetLastWriteTime(x.Path));
+                        ? modGroup.OrderByDescending(x => x.Path.ToLower().Contains("sideloader modpack")).ThenByDescending(x => x.Version, new VersionComparer())
+                        : modGroup.OrderByDescending(x => x.Path.ToLower().Contains("sideloader modpack")).ThenByDescending(x => File.GetLastWriteTime(x.Path));
 
                     // Prefer .zipmod extension and then longer paths (so the mod has either longer name or is arranged in a subdirectory)
                     orderedMods = orderedMods.ThenByDescending(x => FileHasZipmodExtension(x.Path))
                         .ThenByDescending(x => x.Path.Length);
 
-                    foreach (var oldMod in orderedMods.Skip(1))
-                        SafeFileDelete(oldMod.Path, path);
+                    foreach (var oldMod in orderedMods.Skip(1).Where(x => !x.Path.ToLower().Contains("sideloader modpack"))) SafeFileDelete(oldMod.Path);
                 }
             }
             catch (Exception ex)
@@ -327,7 +374,7 @@ namespace HelperLib
             }
         }
 
-        private static void SideloaderCleanupByFilename(IEnumerable<string> allMods, string path)
+        private static void SideloaderCleanupByFilename(IEnumerable<string> allMods)
         {
             var modDuplicates = allMods.GroupBy(Path.GetFileNameWithoutExtension);
 
@@ -337,23 +384,24 @@ namespace HelperLib
 
                 // Figure out the newest mod and remove all others. Favor .zipmod versions if both have the same creation date
                 var orderedVersions = modVersions.OrderByDescending(File.GetLastWriteTime)
-                    .ThenByDescending(FileHasZipmodExtension);
+                    .ThenByDescending(FileHasZipmodExtension)
+                    // Prefer non-disabled mods
+                    .ThenByDescending(x => !Path.GetExtension(x).Contains("_"));
                 foreach (var oldModPath in orderedVersions.Skip(1))
-                    SafeFileDelete(oldModPath, path);
+                    SafeFileDelete(oldModPath);
             }
         }
 
         private static bool FileHasZipmodExtension(string fileName)
         {
-            return fileName.EndsWith(".zipmod", StringComparison.OrdinalIgnoreCase);
+            return fileName.EndsWith(".zipmod", StringComparison.OrdinalIgnoreCase) || fileName.EndsWith(".zi_mod", StringComparison.OrdinalIgnoreCase);
         }
 
-        private static void SafeFileDelete(string file, string gamePath)
+        private static void SafeFileDelete(string file)
         {
             try
             {
                 File.Delete(file);
-                AppendLog(gamePath, "Removing " + file);
             }
             catch (SystemException)
             {
