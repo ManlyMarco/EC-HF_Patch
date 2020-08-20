@@ -1,6 +1,12 @@
-![preview](https://user-images.githubusercontent.com/39247311/49796741-cf723180-fd3d-11e8-8b8a-2d4d3de6b568.PNG)
+![ec_preview](https://user-images.githubusercontent.com/39247311/90802652-d8d7dd80-e317-11ea-9a3e-25ef15bf92b3.png)
 # HF Patch for EmotionCreators
-Patch with all updates and mods necessary to play the game fully uncensored and translated to English. It can repair most broken game installations and return the game to a mostly stock state. Most content mods are also included, so it's possible to load most cards and scenes.
+An unofficial patch for Emotion Creators that installs the latest fan-made English translations and essential mods. It also fixes many common issues with the game. 
+
+It will allow you to load all character cards and scenes and give you countless content creation and gameplay improvements while still keeping the original, uncluttered feel of the game. All content is tested and fixed (or removed) as needed before each update, providing a stable platform for further modding.
+
+HF Patch does not contain the full game, paid expansions or any other pirated content. You have to [buy the game](https://dlsoft.dmm.co.jp/en/detail/illusion_0029/) and any expansions separately.
+
+The base game (Emotion Creators), and by extension this patch are not suitable for minors. If you are under 18 years old you can not use this patch. The base game and this patch contain only characters of age 18 or higher. The creator of this patch is not responsible for creations of its users and prohibits any unlawful use of this software.
 
 You can support development of HF Patch through my Patreon page: https://www.patreon.com/ManlyMarco
 
@@ -12,9 +18,13 @@ Check the [Releases](https://github.com/ManlyMarco/EC-HF_Patch/releases) page fo
 2. Run the latest HF Patch
 3. Wait until it's done and enjoy the game!
 
+If in doubt, watch [this game and HF Patch installation guide](https://www.youtube.com/watch?v=Xece-wF86BM). If you have any questions, check the [Koikatu FAQ](https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help) (most of it applies to EC as well). 
+
+If you need any further help, visit the [Koikatsu Discord server](https://discord.gg/urDt8CK) and ask in the #help channel, or ask in comments under this post. There are also chat and sharing channels for EC scenes and cards!
+
 **Notes:**
 - You can choose what mods you want, but for beginners it's recommended to leave the default settings.
-- If you have installed a repack or are updating from old patch, tell HF Patch to delete all old mods.
+- If you have installed a repack or are updating from an old patch, tell HF Patch to delete all old mods.
 
 ## What mods are included?
 You can see a list of all included mods [here](https://github.com/ManlyMarco/EC-HF_Patch/blob/master/patch.iss#L24-L85) (lines that contain mods are highlighted, Description contains the mod name and version number).
