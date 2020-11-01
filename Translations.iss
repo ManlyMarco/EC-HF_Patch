@@ -19,7 +19,7 @@ MsgDeepPath=Your game is in a very deeply nested folder, which can cause serious
 
 RunGame=&Run EmotionCreators
 RunWiki=Open EmotionCreators wiki (FAQ, English manual)
-RunDiscord=Join Koikatsu! Discord channel (Help, updates, sharing)
+RunDiscord=Join Koikatsu! Discord server (Help, updates, sharing)
 RunHF=Open HongFire release thread
 StartUpdate=Start mod updater (Download latest new mods and mod updates)
 
@@ -32,6 +32,8 @@ TaskDeletePlugins=Delete BepInEx plugins (Always recommended. Do not disable unl
 TaskDeletePluginSettings=Delete plugin settings (Recommended if you have issues or when updating from old repacks)
 TaskDeleteLst=Delete custom listfiles (Disable hardmods, they will be replaced with sideloader mods. Always recommended)
 TaskSideDupes=Delete duplicate sideloader mods after installation (Only the newest versions are kept. Always recommended)
+TaskPW=Uninstall Patchwork if installed and delete Plugins folder (Optional, will free up some disk space. If you intend to use PW, make sure your version is compatible with the current game update. If you have issues, run the game without PW)
+TaskIPA=Uninstall IPA if installed (Has to be removed for BepInEx to work correctly. Use BepInEx/IPA to load IPA plugins instead.)
 
 CompDev=Developer version with dnSpy debugging
 CompTL=English translation
@@ -72,6 +74,8 @@ jp.TaskDeletePlugins=BepInExプラグインを削除する（古いプラグイ�
 jp.TaskDeletePluginSettings=プラグイン設定をリセットする（問題がある場合に推奨）
 jp.TaskDeleteLst=カスタムリストファイルを削除します（代わりにSideloader modが使用されます。常に推奨）
 jp.TaskSideDupes=インストール後に重複したSideloader modを削除します（最新バージョンは保持されます。常に推奨されます）。
+jp.TaskPW=インストールされている場合はPatchworkをアンインストールし、Pluginsフォルダを削除します（オプション。ディスクスペースをいくらか解放します。PWを使用する予定の場合は、最新のゲームアップデートと互換性があります
+jp.TaskIPA=インストールされている場合はIPAをアンインストールします（BepInExを正しく機能させるには削除する必要があります。代わりにBepInEx / IPAフォルダーを使用してIPAプラグインをロードしてください）
 
 jp.CompDev=dnSpyデバッグ付き開発者版
 jp.CompTL=英訳

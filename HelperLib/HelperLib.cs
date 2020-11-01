@@ -38,10 +38,38 @@ namespace HelperLib
             }
         }
 
+
+
+        private static readonly string GoodSettings =
+            @"<?xml version=""1.0"" encoding=""utf-16""?>
+<Setting>
+  <Size>1280 x 720 (16 : 9)</Size>
+  <Width>1280</Width>
+  <Height>720</Height>
+  <Quality>2</Quality>
+  <FullScreen>false</FullScreen>
+  <Display>0</Display>
+  <Language>0</Language>
+</Setting>";
+
         [DllExport("SetConfigDefaults", CallingConvention = CallingConvention.StdCall)]
         public static void SetConfigDefaults([MarshalAs(UnmanagedType.LPWStr)] string path)
         {
+            try
+            {
+                Directory.CreateDirectory(Path.Combine(path, @"BepInEx\config"));
 
+                var uncp = Path.Combine(path, @"BepInEx\config\com.deathweasel.bepinex.uncensorselector.cfg");
+                File.WriteAllText(uncp, File.Exists(uncp) ? File.ReadAllText(uncp).Replace("Default Male Penis = Random", "Default Male Penis = SoS") : "[Config]\n\nDefault Male Penis = SoS");
+
+                //todo turn on next patch version
+                //var subp = Path.Combine(path, @"BepInEx\config\com.deathweasel.bepinex.uncensorselector.cfg");
+                //if(!File.Exists(subp)) File.WriteAllText(subp, "[Config]\nShow Subtitles = false");
+            }
+            catch (Exception e)
+            {
+                AppendLog(path, "Failed trying to set config defaults: " + e);
+            }
         }
 
         [DllExport("WriteVersionFile", CallingConvention = CallingConvention.StdCall)]
@@ -101,8 +129,10 @@ namespace HelperLib
                 try
                 {
                     File.Delete(ud);
+                    File.WriteAllText(ud, GoodSettings, Encoding.Unicode);
+
                     if (!(e is FileNotFoundException))
-                        AppendLog(path, @"Removed corrupted " + ud + "; Cause:" + e.Message);
+                        AppendLog(path, @"Fixed corrupted " + ud + "; Cause:" + e.Message);
                 }
                 catch { }
             }
@@ -219,7 +249,7 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                     "EC Sideloader Modpack - EC_UncensorSelector",
                     "EC Sideloader Modpack - Fixes",
                     "Sideloader Modpack",
-                    "Sideloader Modpack - Compatibility Pack",
+                    "Sideloader Modpack - KK_MaterialEditor"    ,
                 };
 
                 var fullAcceptableDirs = acceptableDirs.Select(s => Path.Combine(modsPath, s) + "\\").ToArray();
@@ -242,6 +272,11 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
             {
                 AppendLog(path, $"Failed to remove old mods from the mods directory - {ex}");
             }
+        }
+
+        [DllExport("StartAutoUpdate", CallingConvention = CallingConvention.StdCall)]
+        public static void StartAutoUpdate([MarshalAs(UnmanagedType.LPWStr)] string path, [MarshalAs(UnmanagedType.LPWStr)] string installer, bool sm, bool smcp, bool smf, bool smme, bool smus, bool smmap, bool smstu)
+        {
         }
 
         [DllExport("RemoveJapaneseCards", CallingConvention = CallingConvention.StdCall)]
@@ -358,14 +393,15 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                 foreach (var modGroup in mods.GroupBy(x => x.Guid))
                 {
                     var orderedMods = modGroup.All(x => !string.IsNullOrWhiteSpace(x.Version))
-                        ? modGroup.OrderByDescending(x => x.Path.ToLower().Contains("sideloader modpack")).ThenByDescending(x => x.Version, new VersionComparer())
-                        : modGroup.OrderByDescending(x => x.Path.ToLower().Contains("sideloader modpack")).ThenByDescending(x => File.GetLastWriteTime(x.Path));
+                        ? modGroup.OrderByDescending(x => x.Path.ToLower().Contains("mods\\sideloader modpack")).ThenByDescending(x => x.Version, new VersionComparer())
+                        : modGroup.OrderByDescending(x => x.Path.ToLower().Contains("mods\\sideloader modpack")).ThenByDescending(x => File.GetLastWriteTime(x.Path));
 
                     // Prefer .zipmod extension and then longer paths (so the mod has either longer name or is arranged in a subdirectory)
                     orderedMods = orderedMods.ThenByDescending(x => FileHasZipmodExtension(x.Path))
                         .ThenByDescending(x => x.Path.Length);
 
-                    foreach (var oldMod in orderedMods.Skip(1).Where(x => !x.Path.ToLower().Contains("sideloader modpack"))) SafeFileDelete(oldMod.Path);
+                    foreach (var oldMod in orderedMods.Skip(1))
+                        SafeFileDelete(oldMod.Path);
                 }
             }
             catch (Exception ex)
