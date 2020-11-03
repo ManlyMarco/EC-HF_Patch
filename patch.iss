@@ -48,194 +48,70 @@ Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 
 [Components]
 Name: "Patch"; Description: "All free updates up to 07/05/2019 + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
-;Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
+; Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
-Name: "BepInEx"; Description: "BepInEx v5.3 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0 + BepIn4Patcher v1.0"; Types: full_en full extra_en extra custom bare; Flags: fixed 
-Name: "BepInEx\Dev"; Description: "{cm:CompDev}";
-
-Name: "BepisPlugins"; Description: "BepisPlugins r15.4 (Core plugins needed for most things)"; Types: full_en full extra custom bare; Flags: fixed
-Name: "ECAPI"; Description: "ECAPI v1.13.1 (Modding API needed by many plugins)"; Types: full_en full extra custom bare; Flags: fixed
-
-Name: "XUnityResourceRedirector"; Description: "XUnity.ResourceRedirector 1.1.2 (Modding API)"; Types: full_en full extra custom bare; Flags: fixed
+Name: "BepInEx"; Description: "BepInEx v5.3 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0 + BepIn4Patcher v1.0"; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "BepInEx\Dev"; Description: "{cm:CompDev}"                                                                         
 
 Name: "KKManager"; Description: "KKManager v0.13.1 (Manage and update mods)"; Types: full_en full extra_en extra custom
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Name: "Modpack"; Description: "Sideloader Modpacks {#CurrentDate} (Add additional content to the game, needs at least BepisPlugins to work)"
+Name: "Modpack\General"; Description: "General (Content for making characters, always recommended)"; Types: full_en full extra_en extra
+Name: "Modpack\Fixes"; Description: "Fixes (Fixes to some of the official content, always recommended)"; Types: full_en full extra_en extra
+Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for use with MaterialEditor)"; Types: full_en full extra_en extra
+Name: "Modpack\UncensorSelector"; Description: "EC_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
 
 Name: "CustomLauncher"; Description: "IllusionLaunchers v2.1 (Custom launcher)"; Types: full extra full_en extra_en custom
 
-Name: "AT"; Description: "XUnity.AutoTranslator v4.12.0"; Types: full extra full_en extra_en custom
-
-Name: "AT\TL"; Description: "{cm:CompTL}"; Types: full_en extra_en 
-Name: "AT\TL\EnglishTranslation"; Description: "ManlyMarco/EmotionCreatorsTranslation v2.1"; Types: full_en extra_en
-;Name: "AT\TL\EnglishTranslation\UserData"; Description: "Translated cards, scenes and backgrounds (they overwrite defaults)"
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Name: "UNC"; Description: "{cm:CompUNC}"; Types: full_en full extra_en extra
-
-Name: "UNC\Selector"; Description: "KK_UncensorSelector v3.9.2 (NEEDS Koikatsu Overlay Mods!)"; Types: full_en full extra_en extra
-Name: "UNC\Selector\Pack"; Description: "Sideloader Modpack - EC_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Name: "Content"; Description: "Additional content for character and scene creation (Needed to properly load most character cards and scenes)"; Types: full_en full extra_en extra
-
-Name: "Content\Modpack"; Description: "Sideloader Modpack for KK/EC (Lots of additional content for making characters) + ModBoneImplantor v0.2.4"; Types: full_en full extra
-Name: "Content\ModpackEC"; Description: "Sideloader Modpack for EC (Mods specially made for EC)"; Types: full_en full extra
-Name: "Content\ModpackCompatibility"; Description: "Sideloader Modpack - Compatibility Pack for KK/EC (Optional content useful for loading old cards, not very useful for new cards)"; Types: full_en full extra
-
-Name: "Content\EC_ClothingUnlocker"; Description: "EC_ClothingUnlocker v2.0.1 (Can use female clothes on males)"; Types: full_en full extra
-Name: "Content\EC_HairAccessoryCustomizer"; Description: "EC_HairAccessoryCustomizer v1.1.5 (Color matching for hair accessories)"; Types: full_en full extra
-
-Name: "Content\EC_MaterialEditor"; Description: "EC_MaterialEditor v2.1.1 (Advanced material controls for maker and studio)"; Types: full_en full extra
-Name: "Content\EC_MaterialEditor\Pack"; Description: "Sideloader Modpack - KK_MaterialEditor (Shaders for use with MaterialEditor)"; Types: full_en full extra
-
-Name: "Content\KKABMX"; Description: "ECABMX v4.3 (More sliders in maker)"; Types: full_en full extra
-Name: "Content\KSOX"; Description: "EC_OverlayMods v5.2 (Custom body, clothes and eye textures)"; Types: full_en full extra
-Name: "Content\EC_InvisibleBody"; Description: "EC_InvisibleBody v1.3.2 (Hide character body)"; Types: full_en full extra
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Name: "FIX"; Description: "{cm:CompFIX}"; Types: extra
-Name: "FIX\ModpackECFixes"; Description: "Sideloader Modpack - Fixes for EC (Fixes to base content)"; Types: full_en full extra
-Name: "FIX\IllusionFixes"; Description: "IllusionFixes_EmotionCreators v14.0 (Fixes to many of the game's bugs and limitations)"; Types: full_en full extra
-Name: "FIX\EC_ExtraCharacters"; Description: "EC_ExtraCharacters v1.0.2 (Lets you to have more than the 8 characters)"; Types: full_en full extra
-Name: "FIX\EC_RimRemover"; Description: "RimRemover v1.1 (Removes rim lighting around the edges, looks better to some people, enable in plugin settings)"; Types: full_en full extra
-Name: "FIX\InputHotkeyBlock"; Description: "InputHotkeyBlock v1.2 (Blocks hotkeys when typing in text fields)"; Types: full_en full extra
-Name: "FIX\ECAlternativeNodeVerification"; Description: "ECAlternativeNodeVerification v1.0.0 (Fixes large node graphs crashing scene save)"; Types: full_en full extra
-Name: "FIX\ECIKParentUnlocker"; Description: "ECIKParentUnlocker v2.0.0 (Allows reparenting any IK target in H nodes)"; Types: full_en full extra
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Name: "Feature"; Description: "Improvements and additional features"; Types: extra
-;Name: "Feature\DragAndDrop"; Description: "Drag and drop character cards and scenes v1.3"; Types: full_en full extra
-Name: "Feature\BrowserFolders"; Description: "EC_BrowserFolders v2.2 (Folder support in chara/scene select screens)"; Types: full_en full extra
-;Name: "Feature\KK_ClothesLoadOption"; Description: "KK_ClothesLoadOption 0.0.0 (Can load only some parts of coordinate cards)"; Types: full_en full extra
-;Name: "Feature\KK_BetterColorPicker"; Description: "KK_BetterColorPicker v1.0 (Select color from anywhere on screen in maker, useful for copying colors from reference images)"; Types: full_en full extra
-
-Name: "Feature\MakerAdditions"; Description: "MakerAdditions v1.0 (Quality of life improvements to character maker)"; Types: full_en full extra
-Name: "Feature\EC_MakerSearch"; Description: "EC_MakerSearch v1.1.1 (Add search boxes to item lists in character maker)"; Types: full_en full extra
-Name: "Feature\EC_MakerDefaults"; Description: "EC_MakerDefaults v1.0 (Change default character maker settings, check plugin options)"; Types: full_en full extra
-Name: "Feature\EC_Pushup"; Description: "EC_Pushup v1.2 (Clothes affect breast shape)"; Types: full_en full extra
-
-Name: "Feature\EC_RemoveToRecycleBin"; Description: "EC_RemoveToRecycleBin v1.1.1 (Prevents accidentally losing cards by overwriting them)"; Types: full_en full extra
-Name: "Feature\GraphicsSettings"; Description: "BepInEx.GraphicsSettings v1.2 (Additional graphics settings)"; Types: full_en full extra
-Name: "Feature\MuteInBackground"; Description: "BepInEx.MuteInBackground v1.1 (Automatically mute the game when not focused, enable in plugin settings)"; Types: full_en full extra
-
-Name: "Feature\CharacterReplacer"; Description: "EmotionCreators_CharacterReplacer v1.6.2 (Replace default characters in maker)"; Types: full_en full extra
-Name: "Feature\CharacterExport"; Description: "CharacterExport v1.0 (Export character cards from a scene)"; Types: full_en full extra
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Name: "MISC"; Description: "{cm:CompMISC}";
-
-Name: "MISC\FPSCounter"; Description: "FPSCounter v3.0 (FPS display and simple plugin profiler)"; Types: full_en full extra
-Name: "MISC\Editor"; Description: "Runtime Unity Editor v2.1.1 (Trainer and debugger)"; Types: full_en full extra
-Name: "MISC\EnableResize"; Description: "EnableResize v1.4 (Allows resizing of game window, can cause UI issues)"; Types: extra
-Name: "MISC\Meme"; Description: "Custom intro voices v11 (AH↓ HA↑ HA↑ HA↑)"; Types: extra
-
-Name: "MISC\FIX"; Description: "Fix game registry (e.g. after moving to different folder)"; Types: bare full_en full extra
-
 [Files]
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
-
+Source: "Input\start.bat"; DestDir: "{tmp}\hfp"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "Input\DirectX\Jun2010\*"; DestDir: "{tmp}\hfp\DirectXRedist2010"; Flags: ignoreversion recursesubdirs createallsubdirs deleteafterinstall; Check: DirectXRedistNeedsInstall
+Source: "Plugin Readme.md"; DestDir: "{app}"
 
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-;Source: "Input\_Patch\extras\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
-Source: "Input\_Patch\emocre_01_plus_oh0705drd_all\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
+; Source: "Input\_Patch\extras\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
+Source: "Input\_Patch\emocre_01_plus_oh0705drd_all\*";      DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
 
-Source: "E:\Games\EmotionCreators\mods\Sideloader Modpack\*"; DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs solidbreak; Components: Content\Modpack
-Source: "E:\Games\EmotionCreators\mods\Sideloader Modpack - Compatibility Pack\*"; DestDir: "{app}\mods\Sideloader Modpack - Compatibility Pack"; Flags: ignoreversion recursesubdirs ; Components: Content\ModpackCompatibility
-Source: "E:\Games\EmotionCreators\mods\Sideloader Modpack - KK_MaterialEditor\*"; DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs; Components: Content\EC_MaterialEditor\Pack
-Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack\*"; DestDir: "{app}\mods\EC Sideloader Modpack"; Flags: ignoreversion recursesubdirs; Components: Content\ModpackEC
-Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack - EC_UncensorSelector\*"; DestDir: "{app}\mods\EC Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs; Components: UNC\Selector\Pack
-Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack - Fixes\*"; DestDir: "{app}\mods\EC Sideloader Modpack - Fixes"; Flags: ignoreversion recursesubdirs; Components: FIX\ModpackECFixes
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\KKManager\*"; DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: KKManager
+Source: "Input\KKManager\*";                                DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: KKManager
 
-Source: "Input\BepInEx_x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
-Source: "Input\BepInEx_Essentials\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
-;Source: "Input\BepInEx_Compatibility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\Compat
+Source: "Input\BepInEx_x64\*";                              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
+Source: "Input\BepInEx_Essentials\*";                       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
+; Source: "Input\BepInEx_Compatibility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\Compat
+Source: "Input\BepInEx_Dev\*";                              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\Dev
 
-#ifndef WEBINSTALLER
-Source: "Input\BepInEx_Dev\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev
-#endif
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Plugins\EC_BepisPlugins\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepisPlugins
+Source: "E:\Games\EmotionCreators\mods\Sideloader Modpack\*"; DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Modpack\General
+Source: "E:\Games\EmotionCreators\mods\Sideloader Modpack - KK_MaterialEditor\*"; DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\MaterialEditor
+Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack\*"; DestDir: "{app}\mods\EC Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\General
+Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack - EC_UncensorSelector\*"; DestDir: "{app}\mods\EC Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\UncensorSelector
+Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack - Fixes\*"; DestDir: "{app}\mods\EC Sideloader Modpack - Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
 
-Source: "Input\_Plugins\ECAPI\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: ECAPI
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_Plugins\XUnity.ResourceRedirector-BepIn-5x\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: XUnityResourceRedirector
+Source: "Input\_TL\_lang jp\*";                             DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: jp
+Source: "Input\_TL\_lang ch\*";                             DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: sc
+Source: "Input\_TL\_lang eng\*";                            DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: en
+Source: "Input\_TL\EmotionCreatorsTranslation\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation; Excludes: "UserData"
 
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source: "Input\Launcher_jp\*";                              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: CustomLauncher
 
-Source: "Input\_TL\_lang jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: jp
-Source: "Input\_TL\_lang ch\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: sc
-Source: "Input\_TL\_lang eng\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: en
+Source: "Input\_Plugins\EC_UncensorSelector Base.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Selector
 
-Source: "Input\_Plugins\XUnity.AutoTranslator-BepIn-5x\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: AT
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "Input\_TL\EmotionCreatorsTranslation\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Excludes: UserData; Components: AT\TL\EnglishTranslation
+Source: "D:\SVN\ManlyMarco\KK-HF_Patch\Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Meme
 
-Source: "Input\Launcher_jp\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: CustomLauncher
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Source: "Input\_Plugins\KK_UncensorSelector\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: UNC\Selector
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Source: "Input\_Plugins\EC_ModBoneImplantor\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Content\Modpack
-Source: "Input\_Plugins\EC_ClothingUnlocker\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs ; Components: Content\EC_ClothingUnlocker
-Source: "Input\_Plugins\EC_HairAccessoryCustomizer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs ; Components: Content\EC_HairAccessoryCustomizer
-
-Source: "Input\_Plugins\EC_MaterialEditor\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs ; Components: Content\EC_MaterialEditor
-
-Source: "Input\_Plugins\ECABMX\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Content\KKABMX
-Source: "Input\_Plugins\EC_OverlayMods\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Content\KSOX
-Source: "Input\_Plugins\EC_InvisibleBody\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Content\EC_InvisibleBody
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Source: "Input\_Plugins\IllusionFixes_EmotionCreators\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\IllusionFixes
-Source: "Input\_Plugins\EC_ExtraCharacters\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\EC_ExtraCharacters
-Source: "Input\_Plugins\RimRemover\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\EC_RimRemover
-Source: "Input\_Plugins\EC_InputHotkeyBlock\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\InputHotkeyBlock
-Source: "Input\_Plugins\ECAlternativeNodeVerification\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\ECAlternativeNodeVerification
-Source: "Input\_Plugins\ECIKParentUnlocker\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: FIX\ECIKParentUnlocker
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-;Source: "Input\_Plugins\DragAndDrop.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\DragAndDrop
-Source: "Input\_Plugins\EC_BrowserFolders\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\BrowserFolders
-;Source: "Input\_Plugins\KK_ClothesLoadOption.dll"; DestDir: "{app}\BepInEx"; Flags: ignoreversion; Components: Feature\KK_ClothesLoadOption
-;Source: "Input\_Plugins\KK_BetterColorPicker\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\KK_BetterColorPicker
-
-Source: "Input\_Plugins\EC_MakerAdditions\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\MakerAdditions
-Source: "Input\_Plugins\EC_MakerSearch\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\EC_MakerSearch
-Source: "Input\_Plugins\EC_MakerDefaults\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\EC_MakerDefaults
-Source: "Input\_Plugins\EC_Pushup\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\EC_Pushup
-
-Source: "Input\_Plugins\EC_RemoveToRecycleBin\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\EC_RemoveToRecycleBin
-Source: "Input\_Plugins\GraphicsSettings.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: Feature\GraphicsSettings
-Source: "Input\_Plugins\BepInEx.MuteInBackground\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\MuteInBackground
-
-Source: "Input\_Plugins\EmotionCreators_CharacterReplacer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\CharacterReplacer
-Source: "Input\_Plugins\EC_CharacterExport\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: Feature\CharacterExport
-
-;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Source: "Input\_Plugins\FPSCounter\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: MISC\FPSCounter
-Source: "Input\_Plugins\RuntimeUnityEditor\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: MISC\Editor
-Source: "Input\_Plugins\EnableResize.dll"; DestDir: "{app}\BepInEx\plugins"; Flags: ignoreversion recursesubdirs; Components: MISC\EnableResize
-Source: "D:\SVN\ManlyMarco\KK-HF_Patch\Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: MISC\Meme
+#include "components.iss"
 
 [InstallDelete]
 ; Clean up old translations
 Type: filesandordirs; Name: "{app}\BepInEx\translation"; Components: AT\TL
-Type: files; Name: "{app}\BepInEx\KKSceneBrowserFolders.dll"; Components: Feature\KK_BrowserFolders
+Type: files; Name: "{app}\BepInEx\KKSceneBrowserFolders.dll"; Components: Feature\BrowserFolders
 Type: files; Name: "{app}\InitSettingGameStudioVREN.exe"; Components: CustomLauncher
 Type: files; Name: "{app}\InitSettingEN.exe"; Components: CustomLauncher
 Type: files; Name: "{app}\InitSettingEnglish.exe"; Components: CustomLauncher
@@ -248,8 +124,8 @@ Type: files; Name: "{app}\Initial Settings.exe.config"
 Type: filesandordirs; Name: "{app}\UserData\LauncherEN"; Components: CustomLauncher
 
 ; Clean up old modpacks. Large modpacks might not be fully included so don't remove here, instead they get cleaned up from old versions later
-;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"; Components: Content\Modpack
-;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - EC"; Components: Content\ModpackEC
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"; Components: Modpack\General
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - EC"; Components: Modpack\General
 
 ; Clean up old modpacks
 Type: filesandordirs; Name: "{app}\mods\Sideloader Only Mods"
