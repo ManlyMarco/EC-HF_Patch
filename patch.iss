@@ -6,7 +6,7 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "EmotionCreators"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "1.3"
+#define VERSION "1.4"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -47,7 +47,7 @@ Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 #define CurrentDate GetDateTimeString('yyyy-mm-dd', '-', ':');
 
 [Components]
-Name: "Patch"; Description: "All free updates up to 07/05/2019 + Game repair"; Types: full_en full extra custom bare none; Flags: fixed
+Name: "Patch"; Description: "All free updates up to 07/05/2019 + Game repair"; Types: full_en full extra extra_en custom bare none; Flags: fixed
 ; Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
 Name: "BepInEx"; Description: "BepInEx v5.3 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0 + BepIn4Patcher v1.0"; Types: full_en full extra_en extra custom bare; Flags: fixed
@@ -85,11 +85,11 @@ Source: "Input\BepInEx_Dev\*";                              DestDir: "{app}"; Fl
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "E:\Games\EmotionCreators\mods\Sideloader Modpack\*"; DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Modpack\General
-Source: "E:\Games\EmotionCreators\mods\Sideloader Modpack - KK_MaterialEditor\*"; DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\MaterialEditor
-Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack\*"; DestDir: "{app}\mods\EC Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\General
-Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack - EC_UncensorSelector\*"; DestDir: "{app}\mods\EC Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\UncensorSelector
-Source: "E:\Games\EmotionCreators\mods\EC Sideloader Modpack - Fixes\*"; DestDir: "{app}\mods\EC Sideloader Modpack - Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
+Source: "G:\HFpatchmaking\EC\TestGame\mods\Sideloader Modpack\*"; DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Modpack\General
+Source: "G:\HFpatchmaking\EC\TestGame\mods\Sideloader Modpack - KK_MaterialEditor\*"; DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\MaterialEditor
+Source: "G:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack\*"; DestDir: "{app}\mods\EC Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\General
+Source: "G:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack - EC_UncensorSelector\*"; DestDir: "{app}\mods\EC Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\UncensorSelector
+Source: "G:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack - Fixes\*"; DestDir: "{app}\mods\EC Sideloader Modpack - Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -104,7 +104,7 @@ Source: "Input\_Plugins\EC_UncensorSelector Base.zipmod"; DestDir: "{app}\mods";
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "D:\SVN\ManlyMarco\KK-HF_Patch\Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Meme
+Source: "G:\HFpatchmaking\EC\EC-HF_Patch\Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Meme
 
 #include "components.iss"
 
