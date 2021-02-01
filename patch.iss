@@ -6,7 +6,7 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "EmotionCreators"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "1.4"
+#define VERSION "1.5"
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
@@ -24,7 +24,7 @@ LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=208576
 LZMADictionarySize=208576
 LZMANumFastBytes=273
-LZMANumBlockThreads=5
+LZMANumBlockThreads=3
 DiskSpanning=yes
 DefaultDirName={reg:HKCU\Software\Illusion\emotioncreators\emotioncreators,INSTALLDIR}
 
@@ -50,10 +50,10 @@ Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 Name: "Patch"; Description: "All free updates up to 07/05/2019 + Game repair"; Types: full_en full extra extra_en custom bare none; Flags: fixed
 ; Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
 
-Name: "BepInEx"; Description: "BepInEx v5.3 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0 + BepIn4Patcher v1.0"; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "BepInEx"; Description: "BepInEx v5.4.5 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0 + BepIn4Patcher v1.0"; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "BepInEx\Dev"; Description: "{cm:CompDev}"                                                                         
 
-Name: "KKManager"; Description: "KKManager v0.13.1 (Manage and update mods)"; Types: full_en full extra_en extra custom
+Name: "KKManager"; Description: "KKManager v0.16.0 (Manage and update mods)"; Types: full_en full extra_en extra custom
 
 Name: "Modpack"; Description: "Sideloader Modpacks {#CurrentDate} (Add additional content to the game, needs at least BepisPlugins to work)"
 Name: "Modpack\General"; Description: "General (Content for making characters, always recommended)"; Types: full_en full extra_en extra
@@ -61,7 +61,7 @@ Name: "Modpack\Fixes"; Description: "Fixes (Fixes to some of the official conten
 Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for use with MaterialEditor)"; Types: full_en full extra_en extra
 Name: "Modpack\UncensorSelector"; Description: "EC_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
 
-Name: "CustomLauncher"; Description: "IllusionLaunchers v2.1 (Custom launcher)"; Types: full extra full_en extra_en custom
+Name: "CustomLauncher"; Description: "IllusionLaunchers v3.0 (Custom launcher)"; Types: full extra full_en extra_en custom
 
 [Files]
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
@@ -85,11 +85,11 @@ Source: "Input\BepInEx_Dev\*";                              DestDir: "{app}"; Fl
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "G:\HFpatchmaking\EC\TestGame\mods\Sideloader Modpack\*"; DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Modpack\General
-Source: "G:\HFpatchmaking\EC\TestGame\mods\Sideloader Modpack - KK_MaterialEditor\*"; DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\MaterialEditor
-Source: "G:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack\*"; DestDir: "{app}\mods\EC Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\General
-Source: "G:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack - EC_UncensorSelector\*"; DestDir: "{app}\mods\EC Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\UncensorSelector
-Source: "G:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack - Fixes\*"; DestDir: "{app}\mods\EC Sideloader Modpack - Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
+Source: "E:\HFpatchmaking\EC\TestGame\mods\Sideloader Modpack\*"; DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Modpack\General
+Source: "E:\HFpatchmaking\EC\TestGame\mods\Sideloader Modpack - KK_MaterialEditor\*"; DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\MaterialEditor
+Source: "E:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack\*"; DestDir: "{app}\mods\EC Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\General
+Source: "E:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack - EC_UncensorSelector\*"; DestDir: "{app}\mods\EC Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\UncensorSelector
+Source: "E:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack - Fixes\*"; DestDir: "{app}\mods\EC Sideloader Modpack - Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -104,7 +104,7 @@ Source: "Input\_Plugins\EC_UncensorSelector Base.zipmod"; DestDir: "{app}\mods";
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "G:\HFpatchmaking\EC\EC-HF_Patch\Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Meme
+Source: "E:\HFpatchmaking\EC\EC-HF_Patch\Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Meme
 
 #include "components.iss"
 

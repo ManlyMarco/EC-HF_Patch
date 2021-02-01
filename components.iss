@@ -1,7 +1,7 @@
 [Components]
 Name: "API";                                   Description: "Modding APIs (Necessary for other mods/plugins to work properly)"                     ; Types: full_en full extra_en extra custom bare; Flags: fixed
-Name: "API\BepisPlugins";                      Description: "BepisPlugins v16.0 (Core plugins needed for most things)"                             ; Types: full_en full extra_en extra custom bare; Flags: fixed
-Name: "API\ECAPI";                             Description: "Modding API v1.13.3 (Modding API needed by many plugins)"                             ; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "API\BepisPlugins";                      Description: "BepisPlugins v16.2.0.2 (Core plugins needed for most things)"                         ; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "API\ECAPI";                             Description: "Modding API v1.15 (Modding API needed by many plugins)"                               ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\XUnityResourceRedirector";          Description: "XUnity Resource Redirector v1.1.3 (Modding API for resource overriding)"              ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\ModBoneImplantor";                  Description: "Mod Bone Implantor v0.2.4 (Needed by some clothing mods to add dynamic bones)"        ; Types: full_en full extra_en extra custom bare; Flags: fixed
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -10,31 +10,31 @@ Name: "AT\TL";                                 Description: "{cm:CompTL}"       
 Name: "AT\TL\EnglishTranslation";              Description: "ManlyMarco/EmotionCreatorsTranslation v2.1"                                           ; Types: full_en extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "UNC";                                   Description: "{cm:CompUNC}"                                                                         ; Types: full_en full extra_en extra
-Name: "UNC\Selector";                          Description: "Uncensor Selector v3.10 (NEEDS Koikatsu Overlay Mods!)"                               ; Types: full_en full extra_en extra
+Name: "UNC\Selector";                          Description: "Uncensor Selector v3.11.1 (NEEDS Koikatsu Overlay Mods!)"                             ; Types: full_en full extra_en extra
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Content";                               Description: "Additional content for character and scene creation (Needed to properly load most character cards and scenes)"; Types: full_en full extra_en extra
 Name: "Content\EC_ClothingUnlocker";           Description: "Clothing Unlocker v2.0.1 (Can use female clothes on males)"                           ; Types: full_en full extra extra_en
 Name: "Content\EC_HairAccessoryCustomizer";    Description: "Hair Accessory Customizer v1.1.5 (Color matching for hair accessories)"               ; Types: full_en full extra extra_en
-Name: "Content\EC_MaterialEditor";             Description: "Material Editor v2.2 (Advanced material controls for maker and studio)"               ; Types: full_en full extra extra_en
-Name: "Content\KKABMX";                        Description: "ECABMX (BonemodX) v4.3.3 (More sliders in maker)"                                     ; Types: full_en full extra extra_en
+Name: "Content\EC_MaterialEditor";             Description: "Material Editor v2.6 (Advanced material controls for maker and studio)"               ; Types: full_en full extra extra_en
+Name: "Content\KKABMX";                        Description: "ECABMX (BonemodX) v4.4.1 (More sliders in maker)"                                     ; Types: full_en full extra extra_en
 Name: "Content\KSOX";                          Description: "Skin Overlay Mod v5.2.1 (Custom body, clothes and eye textures)"                      ; Types: full_en full extra extra_en
-Name: "Content\EC_InvisibleBody";              Description: "Invisible Body v1.3.2 (Hide character body)"                                          ; Types: full_en full extra extra_en
+Name: "Content\EC_InvisibleBody";              Description: "Invisible Body v1.4 (Hide character body)"                                            ; Types: full_en full extra extra_en
 Name: "Content\MoreAccessories";               Description: "MoreAccessories v1.1.0 (Allow more than 20 accessories on characters)"                ; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "FIX";                                   Description: "{cm:CompFIX}"                                                                         ; Types: extra extra_en
-Name: "FIX\IllusionFixes";                     Description: "IllusionFixes v15.0 (Fixes to many of the game's bugs and limitations)"               ; Types: full_en full extra extra_en
-Name: "FIX\EC_ExtraCharacters";                Description: "EC_ExtraCharacters v1.0.2 (Lets you to have more than the 8 characters)"              ; Types: full_en full extra extra_en
+Name: "FIX\IllusionFixes";                     Description: "IllusionFixes v15.1.1 (Fixes to many of the game's bugs and limitations)"             ; Types: full_en full extra extra_en
+Name: "FIX\EC_ExtraCharacters";                Description: "EC_ExtraCharacters v1.0.3 (Lets you to have more than the 8 characters)"              ; Types: full_en full extra extra_en
 Name: "FIX\EC_RimRemover";                     Description: "Rim Remover v1.1 (Removes rim lighting around the edges, looks better to some people, enable in plugin settings)"; Types: full_en full extra extra_en
 Name: "FIX\ECAlternativeNodeVerification";     Description: "Alternative Node Verification v1.0.0.1 (Fixes large node graphs crashing scene save)" ; Types: full_en full extra extra_en
 Name: "FIX\ECIKParentUnlocker";                Description: "IK Parent Unlocker v1.0.0 (Allows reparenting any IK target in H nodes)"              ; Types: full_en full extra extra_en
 Name: "FIX\BepInEx_InputHotkeyBlock";          Description: "Input Hotkey Block v1.3 (Blocks hotkeys when typing in text fields)"                  ; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Feature";                               Description: "Improvements and additional features"                                                 ; Types: extra extra_en
-Name: "Feature\BrowserFolders";                Description: "Maker Browser Folders v2.2 (Folder support in chara/scene select screens)"            ; Types: full_en full extra extra_en
+Name: "Feature\BrowserFolders";                Description: "Maker Browser Folders v2.3.1 (Folder support in chara/scene select screens)"          ; Types: full_en full extra extra_en
 Name: "Feature\MakerAdditions";                Description: "EC_MakerAdditions v1.0.0 (Quality of life improvements to character maker)"           ; Types: full_en full extra extra_en
 Name: "Feature\EC_MakerSearch";                Description: "EC_MakerSearch v1.4.0 (Add search boxes to item lists in character maker)"            ; Types: full_en full extra extra_en
-Name: "Feature\EC_MakerDefaults";              Description: "Maker Defaults v1.0 (Change default character maker settings, check plugin options)"  ; Types: full_en full extra extra_en
-Name: "Feature\EC_Pushup";                     Description: "Pushup v1.2 (Clothes affect breast shape)"                                            ; Types: full_en full extra extra_en
+Name: "Feature\EC_MakerDefaults";              Description: "Maker Defaults v1.0.1 (Change default character maker settings, check plugin options)"; Types: full_en full extra extra_en
+Name: "Feature\EC_Pushup";                     Description: "Pushup v1.3 (Clothes affect breast shape)"                                            ; Types: full_en full extra extra_en
 Name: "Feature\EC_RemoveToRecycleBin";         Description: "Remove Cards To Recycle Bin v1.1.1 (Prevents accidentally losing cards by overwriting them)"; Types: full_en full extra extra_en
 Name: "Feature\GraphicsSettings";              Description: "Graphics Settings v1.2.1 (Additional graphics settings)"                              ; Types: full_en full extra extra_en
 Name: "Feature\MuteInBackground";              Description: "Mute In Background v1.1 (Mute In Background)"                                         ; Types: full_en full extra extra_en
@@ -44,12 +44,16 @@ Name: "Feature\EC_Profile";                    Description: "Profile v1.0.1 (A t
 Name: "Feature\EC_ItemBlacklist";              Description: "Item Blacklist v1.1 (Right click in maker lists to hide items)"                       ; Types: full_en full extra extra_en
 Name: "Feature\EnableResize";                  Description: "EnableResize v1.5 (Allows resizing of game window, can cause UI issues)"              ; Types: extra extra_en
 Name: "Feature\BepInEx_EnableFullScreenToggle"; Description: "Enable Full Screen Toggle v1.0 (Enables alt+enter to toggle fullscreen)"              ; Types: extra extra_en
-Name: "Feature\DragAndDrop_EmotionCreators";   Description: "Drag and Drop v1.2.2 (Allows dragging cards, scenes and outfits into game window)"    ; Types: full_en full extra extra_en
+Name: "Feature\DragAndDrop_EmotionCreators";   Description: "Drag and Drop v1.2.3 (Allows dragging cards, scenes and outfits into game window)"    ; Types: full_en full extra extra_en
 Name: "Feature\EC_ClothingStateMenu";          Description: "Clothing State Menu v3.0.1 (Separate control of clothing in maker)"                   ; Types: full_en full extra extra_en
+Name: "Feature\EC_EyeControl";                 Description: "Eye Control v1.0.1 (Allows making of closed eyed/not blinking charas)"                ; Types: full_en full extra extra_en
+Name: "Feature\EC_Autosave";                   Description: "Autosave v1.0.1 (Autosave for chara maker)"                                           ; Types: full_en full extra extra_en
+Name: "Feature\EC_AccessoryQuickRemove";       Description: "Accessory Quick Remove v1.0 (Accessory Quick Remove for Emotion Creators)"            ; Types: full_en full extra extra_en
+Name: "Feature\EC_AccessoryClothes";           Description: "Accessory Clothes v1.0 (Accessory Clothes for Emotion Creators)"                      ; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "MISC";                                  Description: "{cm:CompMISC}"                                                                        
 Name: "MISC\FPSCounter";                       Description: "FPS Counter v3.1 (FPS display and simple plugin profiler)"                            ; Types: full_en full extra extra_en
-Name: "MISC\Editor";                           Description: "RuntimeUnityEditor v2.2.1.0 (Trainer and debugger)"                                   ; Types: full_en full extra extra_en
+Name: "MISC\Editor";                           Description: "RuntimeUnityEditor v2.3.0.0 (Trainer and debugger)"                                   ; Types: full_en full extra extra_en
 Name: "MISC\Meme";                             Description: "Custom intro voices v13 (Neeeeeeee)"                                                  ; Types: extra extra_en
 Name: "MISC\FIX";                              Description: "Fix game registry (e.g. after moving to different folder)"                            ; Types: bare full_en full extra extra_en
 
@@ -94,6 +98,10 @@ Source: "Input\_Plugins\_out\BepInEx.EnableFullScreenToggle\*"; DestDir: "{app}"
 Source: "Input\_Plugins\_out\DragAndDrop.EmotionCreators\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\DragAndDrop_EmotionCreators; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\EnableResize\*";               DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EnableResize; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\EC_ClothingStateMenu\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EC_ClothingStateMenu; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\EC_AccessoryClothes\*";        DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EC_AccessoryClothes; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\EC_AccessoryQuickRemove\*";    DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EC_AccessoryQuickRemove; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\EC_Autosave\*";                DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EC_Autosave; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\EC_EyeControl\*";              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EC_EyeControl; Excludes: "manifest.xml"
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\_Plugins\_out\FPSCounter\*";                 DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\FPSCounter; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\RuntimeUnityEditor\*";         DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Editor; Excludes: "manifest.xml"
