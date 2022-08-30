@@ -35,6 +35,7 @@ If you need any further help, visit the [Koikatsu Discord server](https://discor
 **Notes:**
 - You can choose what mods you want, but for beginners it's recommended to leave the default settings.
 - If you have installed a repack or are updating from an old patch, tell HF Patch to delete all old mods.
+- If you want to run the game under Wine/Proton (Linux, SteamOS, macOS, etc.), read [this](https://github.com/Mantas-2155X/illusion-wine-guide) and [this](https://docs.bepinex.dev/articles/advanced/proton_wine.html).*
 
 ### Solutions to common issues with the patch
 - If after installing the patch you have issues running the game, restart your PC and try to install the patch again with default settings.
