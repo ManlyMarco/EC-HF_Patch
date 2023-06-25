@@ -2,6 +2,8 @@
 # HF Patch for EmotionCreators
 An unofficial patch for Emotion Creators with fan-made English translations and essential mods. It will allow you to load all character cards and scenes and give you countless content creation and gameplay improvements while still keeping the original, uncluttered feel of the game. All content is tested and fixed (or removed) as needed before each update, providing a stable platform for further modding. HF Patch can also repair many common issues, try it if you have issues.
 
+Read the [full HF Patch manual](https://gist.github.com/ManlyMarco/31b78470b8e190686c7ed9686c237e3f) to learn more about what it is, what it does, how to use it, and how to solve common issues.
+
 HF Patch does not contain the full game, paid expansions or any other pirated content. You have to buy the game and expansions separately. You can buy it [on DMM](https://dlsoft.dmm.co.jp/detail/illusion_0029/).
 
 The base game (Emotion Creators), and by extension this patch are not suitable for minors. If you are under 18 years old you can not use this patch. The base game and this patch contain only characters of age 18 or higher. The creator of this patch is not responsible for creations of its users and prohibits any unlawful use of this software.
