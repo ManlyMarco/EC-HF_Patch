@@ -17,22 +17,25 @@ HF Patch includes and installs by default:
 - Most commonly used plugins and mods, which allows you to load most character cards and scenes available online
 - Fixes for common issues with the game and mods like botched mod installs
 - Full uncensor with multiple different models
-You can see a full list of what HF Patch contains by checking the `[Components]` section [here](https://github.com/ManlyMarco/KK-HF_Patch/blob/master/patch.iss).
+You can see a full list of what HF Patch contains by checking the `[Components]` section [here](https://github.com/ManlyMarco/EC-HF_Patch/blob/master/patch.iss).
 Note that HF Patch does not contain the full game, paid expansions or any other pirated content. The full game needs to be already installed for the patch to work. If you want to use the VR module, also install it before patching!
 
 ## Download
 Check the [Releases](https://github.com/ManlyMarco/EC-HF_Patch/releases) page for download links. The magnet links need to be downloaded with a torrent client like [qBittorrent](https://www.qbittorrent.org/). To get mail updates for each new release you can watch this repositiory (top right) or watch the linked patreon page.
 
 ## How to install the patch?
-1. Install the game
+Here's a video guide that might be useful. The guide is mostly universal between different games, but there might be some differences.
+- [How to get the game from DMM, install it and install HF Patch (Use the chapter selection to easily find what you are looking for)](https://youtu.be/WLoY5WCqTSw)
+
+### Text guide
+1. Install Emotion Creators to a directory with no Japanese characters in its path (e.g. D:\Games\EC)
 2. (Optional) Install any DLCs* you have. You don't have to install all of them, you can pick only some DLCs or don't install any DLCs at all.
-3. Download the latest HF Patch release from [Releases](https://github.com/ManlyMarco/EC-HF_Patch/releases/latest). You should get a single .exe file and 2 or more .bin files. You can place these files anywhere you want. DO NOT download any .zip files from GitHub - they contain source code for the patch, not the patch itself.
+3. Download the latest HF Patch release from [Releases](https://github.com/ManlyMarco/EC-HF_Patch/releases/latest). You should get a single .exe file along with a few .bin files. You can place these files anywhere you want (except the folder where the game is located), but they HAVE to be in the same folder together. DO NOT download any .zip files from GitHub - they contain source code for the patch, not the patch itself.
 4. Install the latest HF Patch by running the .exe and following the wizard. The default settings should work well for most users.
+   - If you use the light version of the patch its a good idea to update your sideloader separately, you can do this by selecting update in the launcher or using the look for mods option in KKManager.
 5. Done! You can now start the game launcher as usual and you will notice some new options straight away. You can remove the downloaded patcher files now if you want to save some space.
-
-If in doubt, watch [this game and HF Patch installation guide](https://www.youtube.com/watch?v=Xece-wF86BM). If you have any questions, check the [Koikatu FAQ](https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help) (most of it applies to EC as well). 
-
-If you need any further help, visit the [Koikatsu Discord server](https://discord.gg/urDt8CK) and ask in the #help channel, or ask in comments under this post. There are also chat and sharing channels for EC scenes and cards!
+Special patch is included in HF Patch, you don't have to install it manually. It won't hurt anything if you have it installed already, the patch will figure itself out. Just to be safe you can verify game files in Steam before installing the HF Patch if you messed with your installation folder before doing this.
+6. (Optional) You can update the modpacks by clicking the update button within the launcher. You can leave out Sideloader Modpack - Studio if you don't plan on using studio.
 
 **Notes:**
 - You can choose what mods you want, but for beginners it's recommended to leave the default settings.
@@ -40,19 +43,18 @@ If you need any further help, visit the [Koikatsu Discord server](https://discor
 - If you want to run the game under Wine/Proton (Linux, SteamOS, macOS, etc.), read [this](https://github.com/Mantas-2155X/illusion-wine-guide) and [this](https://docs.bepinex.dev/articles/advanced/proton_wine.html).*
 
 ### Solutions to common issues with the patch
-- If after installing the patch you have issues running the game, restart your PC and try to install the patch again with default settings.
-- If after installing the patch Studio hangs when loading, start KKManager (it's in a folder in game directory) and click "Look for updates" at the top, then tell it to update the Studio modpack.
+- If after installing the patch you have issues running the game, restart your PC and try to install the patch again with default settings. 
+- If after installing the patch Studio hangs when loading, start KKManager (it's in a folder in game directory) and click "Look for updates" at the top, then tell it to update the Studio modpack. Or press the update button in the launcher.
 - If you have trouble downloading by using the magnet link, try updating your torrent client or use the latest qBittorrent (it's known to work well).
 - Make sure you downloaded ALL parts to the same folder and that the parts all have the same name. You need ALL parts for the patch to work. If the installer asks you for another disc it means that your download was not extracted correctly and is missing files, or you renamed or removed some of the extracted files. 
 - If you see any messages about corrupted files you'll have to re-download the offending part (or all of the parts).  If you downloaded the torrent, most torrent clients can "force recheck" the downloaded files so you don't have to re-download the whole thing.
 - If your antivirus is flagging the .exe file make sure that you've downloaded the patch by following links in this post. If you are sure the download came from the right place, it's most likely a false positive (it's a common issue with non-signed application installers).
+- On slower drives it can take a few minutes to finish verifying the files since it has to read and hash a lot of data. If you can see it's doing something in task manager then just let it run.
 
 ## Discussion and help
 - [Koikatsu!/EmotionCreators discord server](https://discord.gg/zS5vJYS)
 - [Koikatu Technical Help Wiki (Most of it applies to EC as well)](https://wiki.anime-sharing.com/hgames/index.php?title=Koikatu/Technical_Help)
-
 If you need further help, feel free to ask in the **#help** channel on the server. Try to search for your issue first by using the Discord's search box at top right, it might have been already answered before. Please don't ask for help under this guide because I rarely check the comments here.
-
 
 ### General FAQ / Notes
 - You can configure many plugins by Pressing F1 and then "Plugin settings". You can also see most of the plugin hotkeys in this menu (and change them).
