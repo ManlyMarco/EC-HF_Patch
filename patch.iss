@@ -6,14 +6,29 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "EmotionCreators"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "1.5"
+#define VERSION "1.6"
+;-----------------------------------------Sideloader modpack directory
+#define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
+;#define ModsDir "F:\Games\KoikatsuP\mods"
+;--Don't include any files in the build to make it go fast for testing
+;#define DEBUG
+;---Skip file verification for easier testing, COMMENT OUT FOR RELEASE
+;#define NOVERIFY
+;------------Don't include general, studio and map sideloader modpacks
+;#define LITE
+;---------------------------------------------------------------------
+
 ;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
 
 [Setup]
+#ifndef LITE
 AppName=HF Patch for EmotionCreators
 OutputBaseFilename=EmotionCreators HF Patch v{#VERSION}
-
+#else
+AppName=HF Patch for EmotionCreators (Light Version)
+OutputBaseFilename=EmotionCreators HF Patch v{#VERSION} Light Version
+#endif
 ArchitecturesInstallIn64BitMode=x64
 CloseApplications=yes
 RestartApplications=no
@@ -25,7 +40,9 @@ LZMAUseSeparateProcess=yes
 LZMADictionarySize=208576
 LZMANumFastBytes=273
 LZMANumBlockThreads=3
+#ifndef LITE
 DiskSpanning=yes
+#endif
 DefaultDirName={reg:HKCU\Software\Illusion\emotioncreators\emotioncreators,INSTALLDIR}
 
 [Languages]
@@ -49,19 +66,14 @@ Name: "custom";   Description: "{cm:customInstall}"; Flags: iscustom
 [Components]
 Name: "Patch"; Description: "All free updates up to 07/05/2019 + Game repair"; Types: full_en full extra extra_en custom bare none; Flags: fixed
 ; Name: "Patch\UserData"; Description: "{cm:CompDefCards}";
-
-Name: "BepInEx"; Description: "BepInEx v5.4.5 Plugin framework + MessageCenter v1.2 + ConfigurationManager v16.0 + BepIn4Patcher v1.0"; Types: full_en full extra_en extra custom bare; Flags: fixed
-Name: "BepInEx\Dev"; Description: "{cm:CompDev}"                                                                         
-
-Name: "KKManager"; Description: "KKManager v0.16.0 (Manage and update mods)"; Types: full_en full extra_en extra custom
-
+;-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Modpack"; Description: "Sideloader Modpacks {#CurrentDate} (Add additional content to the game, needs at least BepisPlugins to work)"
+#ifndef LITE
 Name: "Modpack\General"; Description: "General (Content for making characters, always recommended)"; Types: full_en full extra_en extra
+#endif
 Name: "Modpack\Fixes"; Description: "Fixes (Fixes to some of the official content, always recommended)"; Types: full_en full extra_en extra
 Name: "Modpack\MaterialEditor"; Description: "KK_MaterialEditor (Materials for use with MaterialEditor)"; Types: full_en full extra_en extra
 Name: "Modpack\UncensorSelector"; Description: "EC_UncensorSelector (Uncensors for use with UncensorSelector)"; Types: full_en full extra_en extra
-
-Name: "CustomLauncher"; Description: "IllusionLaunchers v3.0 (Custom launcher)"; Types: full extra full_en extra_en custom
 
 [Files]
 Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
@@ -70,41 +82,34 @@ Source: "Input\DirectX\Jun2010\*"; DestDir: "{tmp}\hfp\DirectXRedist2010"; Flags
 Source: "Plugin Readme.md"; DestDir: "{app}"
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 ; Source: "Input\_Patch\extras\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
 Source: "Input\_Patch\emocre_01_plus_oh0705drd_all\*";      DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
-
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Source: "Input\KKManager\*";                                DestDir: "{app}\[UTILITY] KKManager\"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: KKManager
-
-Source: "Input\BepInEx_x64\*";                              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
-Source: "Input\BepInEx_Essentials\*";                       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx
 ; Source: "Input\BepInEx_Compatibility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\Compat
-Source: "Input\BepInEx_Dev\*";                              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\Dev
-
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Source: "E:\HFpatchmaking\EC\TestGame\mods\Sideloader Modpack\*"; DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Modpack\General
-Source: "E:\HFpatchmaking\EC\TestGame\mods\Sideloader Modpack - KK_MaterialEditor\*"; DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\MaterialEditor
-Source: "E:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack\*"; DestDir: "{app}\mods\EC Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\General
-Source: "E:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack - EC_UncensorSelector\*"; DestDir: "{app}\mods\EC Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\UncensorSelector
-Source: "E:\HFpatchmaking\EC\TestGame\mods\EC Sideloader Modpack - Fixes\*"; DestDir: "{app}\mods\EC Sideloader Modpack - Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
+#ifndef LITE
+Source: "{#GameDir}\mods\Sideloader Modpack\*";                       DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Modpack\General
+Source: "{#GameDir}\mods\Sideloader Modpack - Exclusive EC\*";                         DestDir: "{app}\mods\Sideloader Modpack - Exclusive EC"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\General
+#endif
+Source: "{#GameDir}\mods\Sideloader Modpack - KK_MaterialEditor\*";        DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\MaterialEditor
+Source: "{#GameDir}\mods\Sideloader Modpack - EC_UncensorSelector\*";   DestDir: "{app}\mods\Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\UncensorSelector
+Source: "{#GameDir}\mods\Sideloader Modpack - EC_Fixes\*";                 DestDir: "{app}\mods\Sideloader Modpack - EC_Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source: "Input\BepInEx_config\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: BepInEx
+Source: "Input\BepInEx_Dev\common\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev
 
 Source: "Input\_TL\_lang jp\*";                             DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: jp
 Source: "Input\_TL\_lang ch\*";                             DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: sc
 Source: "Input\_TL\_lang eng\*";                            DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: en
 Source: "Input\_TL\EmotionCreatorsTranslation\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation; Excludes: "UserData"
 
-Source: "Input\Launcher_jp\*";                              DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: CustomLauncher
-
 Source: "Input\_Plugins\EC_UncensorSelector Base.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Selector
 
-; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source: "Input\Launcher_branding\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: IllusionLaunchers
 
-Source: "E:\HFpatchmaking\EC\EC-HF_Patch\Input\_Misc\Memes\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Meme
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #include "components.iss"
 
@@ -112,16 +117,16 @@ Source: "E:\HFpatchmaking\EC\EC-HF_Patch\Input\_Misc\Memes\*"; DestDir: "{app}";
 ; Clean up old translations
 Type: filesandordirs; Name: "{app}\BepInEx\translation"; Components: AT\TL
 Type: files; Name: "{app}\BepInEx\KKSceneBrowserFolders.dll"; Components: Feature\BrowserFolders
-Type: files; Name: "{app}\InitSettingGameStudioVREN.exe"; Components: CustomLauncher
-Type: files; Name: "{app}\InitSettingEN.exe"; Components: CustomLauncher
-Type: files; Name: "{app}\InitSettingEnglish.exe"; Components: CustomLauncher
-Type: files; Name: "{app}\InitSetting EN.exe"; Components: CustomLauncher
-Type: files; Name: "{app}\InitSetting English.exe"; Components: CustomLauncher
+Type: files; Name: "{app}\InitSettingGameStudioVREN.exe"; Components: IllusionLaunchers
+Type: files; Name: "{app}\InitSettingEN.exe"; Components: IllusionLaunchers
+Type: files; Name: "{app}\InitSettingEnglish.exe"; Components: IllusionLaunchers
+Type: files; Name: "{app}\InitSetting EN.exe"; Components: IllusionLaunchers
+Type: files; Name: "{app}\InitSetting English.exe"; Components: IllusionLaunchers
 Type: files; Name: "{app}\InitSetting.exe"
 Type: files; Name: "{app}\InitSetting.exe.config"
 Type: files; Name: "{app}\Initial Settings.exe"
 Type: files; Name: "{app}\Initial Settings.exe.config"
-Type: filesandordirs; Name: "{app}\UserData\LauncherEN"; Components: CustomLauncher
+Type: filesandordirs; Name: "{app}\UserData\LauncherEN"; Components: IllusionLaunchers
 
 ; Clean up old modpacks. Large modpacks might not be fully included so don't remove here, instead they get cleaned up from old versions later
 ;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"; Components: Modpack\General
