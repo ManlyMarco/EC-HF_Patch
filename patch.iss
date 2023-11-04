@@ -14,13 +14,13 @@
 ;#define DEBUG
 ;---Skip file verification for easier testing, COMMENT OUT FOR RELEASE
 ;#define NOVERIFY
+;---Skip file verification for easier testing, COMMENT OUT FOR RELEASE
+;#define NOVERIFY
 ;------------Don't include general, studio and map sideloader modpacks
 ;#define LITE
 ;---------------------------------------------------------------------
 
-;----------------------------------------------------------------------------------------------------
 #include "_Common\Header.iss"
-
 [Setup]
 #ifndef LITE
 AppName=HF Patch for EmotionCreators
@@ -44,6 +44,10 @@ LZMANumBlockThreads=3
 DiskSpanning=yes
 #endif
 DefaultDirName={reg:HKCU\Software\Illusion\emotioncreators\emotioncreators,INSTALLDIR}
+
+WindowResizable=yes
+WizardStyle=modern
+WizardSizePercent=120,150
 
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
@@ -80,38 +84,37 @@ Source: "HelperLib.dll"; DestDir: "{app}"; Flags: dontcopy
 Source: "Input\start.bat"; DestDir: "{tmp}\hfp"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "Input\DirectX\Jun2010\*"; DestDir: "{tmp}\hfp\DirectXRedist2010"; Flags: ignoreversion recursesubdirs createallsubdirs deleteafterinstall; Check: DirectXRedistNeedsInstall
 Source: "Plugin Readme.md"; DestDir: "{app}"
-
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ; Source: "Input\_Patch\extras\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
 Source: "Input\_Patch\emocre_01_plus_oh0705drd_all\*";      DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Patch
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ; Source: "Input\BepInEx_Compatibility\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\Compat
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+; Solidbreak at the start to split off the modpacks from other files in case they don't have to be installed. solidbreak splits before the files entry with it is processed
 #ifndef LITE
 Source: "{#GameDir}\mods\Sideloader Modpack\*";                       DestDir: "{app}\mods\Sideloader Modpack"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: Modpack\General
 Source: "{#GameDir}\mods\Sideloader Modpack - Exclusive EC\*";                         DestDir: "{app}\mods\Sideloader Modpack - Exclusive EC"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\General
 #endif
+Source: "{#GameDir}\mods\Sideloader Modpack - EC_Fixes\*";                 DestDir: "{app}\mods\Sideloader Modpack - EC_Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
 Source: "{#GameDir}\mods\Sideloader Modpack - KK_MaterialEditor\*";        DestDir: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\MaterialEditor
 Source: "{#GameDir}\mods\Sideloader Modpack - EC_UncensorSelector\*";   DestDir: "{app}\mods\Sideloader Modpack - EC_UncensorSelector"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\UncensorSelector
-Source: "{#GameDir}\mods\Sideloader Modpack - EC_Fixes\*";                 DestDir: "{app}\mods\Sideloader Modpack - EC_Fixes"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Modpack\Fixes
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source: "Input\_Plugins\EC_UncensorSelector Base.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Selector
 
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+; This include should be here because the patch files above can be overwritten by this include, and the Files section below overwrites some config files that this include extracts
+#include "components.iss"
+
+[Files]
 Source: "Input\BepInEx_config\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs solidbreak; Components: BepInEx
 Source: "Input\BepInEx_Dev\common\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: BepInEx\Dev
-
+Source: "Input\Launcher_branding\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: IllusionLaunchers
+; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Source: "Input\_TL\_lang jp\*";                             DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: jp
 Source: "Input\_TL\_lang ch\*";                             DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: sc
 Source: "Input\_TL\_lang eng\*";                            DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: en
 Source: "Input\_TL\EmotionCreatorsTranslation\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation; Excludes: "UserData"
-
-Source: "Input\_Plugins\EC_UncensorSelector Base.zipmod"; DestDir: "{app}\mods"; Flags: ignoreversion; Components: UNC\Selector
-
-Source: "Input\Launcher_branding\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; Components: IllusionLaunchers
-
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-#include "components.iss"
 
 [InstallDelete]
 ; Clean up old translations
@@ -145,16 +148,17 @@ Type: filesandordirs; Name: "{app}\mods\[EC]*.7z"
 Type: filesandordirs; Name: "{app}\BepInEx\introclips"
 Type: filesandordirs; Name: "{app}\mods\[moderchan]Tongue Texture v1.1.zipmod"
 ; Completely remove only modpacks that we fully bundle; compatibility pack is safer to be removed since it can have dupes with main modpack
-#ifndef WEBINSTALLER
-;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"                      ; Components: Modpack\General
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Compatibility Pack" ; Components: Modpack\General
-;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Studio"             ; Components: Modpack\Studio
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Fixes"              ; Components: Modpack\Fixes
-;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Maps"               ; Components: Content\ModpackMaps
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"  ; Components: Modpack\MaterialEditor
-Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_UncensorSelector"; Components: Modpack\UncensorSelector
-;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Animations"; Components: Modpack\Animations
+#ifndef LITE
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack"                        ; Components: Modpack\General
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Exclusive EC"         ; Components: Modpack\General
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Studio"               ; Components: Modpack\Studio
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Maps"                 ; Components: Content\ModpackMaps
+;Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Animations"           ; Components: Modpack\Animations
 #endif
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - Compatibility Pack"   
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - EC_Fixes"              ; Components: Modpack\Fixes
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - KK_MaterialEditor"     ; Components: Modpack\MaterialEditor
+Type: filesandordirs; Name: "{app}\mods\Sideloader Modpack - EC_UncensorSelector"   ; Components: Modpack\UncensorSelector
 
 ; Clean up old patches and packs
 Type: files; Name: "{app}\start.bat"

@@ -6,7 +6,7 @@ Name: "BepInEx\BepInEx_CatchUnityEventExceptions"; Description: "Catch Unity Eve
 Name: "BepInEx\CompatIPA";                     Description: "IPALoaderX v1.2.4 (Backwards compatibility with IPA plugins)"                         ; Types: full_en full extra extra_en
 ; Name: "BepInEx\CompatBep4";                    Description: "BepIn4Patcher v1.0.0.0 (Backwards compatibility with BepInEx4 plugins)"
 Name: "BepInEx\Dev";                           Description: "{cm:CompDev}"                                                                         
-Name: "BepInEx\BepInEx_SplashScreen";          Description: "BepInEx.SplashScreen v1.0.0.0 (A loading screen on game startup with information about patchers and plugins being currently loaded)"; Types: full_en full extra extra_en
+Name: "BepInEx\BepInEx_SplashScreen";          Description: "BepInEx.SplashScreen v2.0.0.0 (A loading screen on game startup with information about patchers and plugins being currently loaded)"; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "IllusionLaunchers";                     Description: "IllusionLaunchers v3.4.1.36419 (Custom game launcher)"                                ; Types: full_en full extra extra_en
 Name: "KKManager";                             Description: "KKManager v0.22.1.0 (Manage and update mods, browse cards)"                           ; Types: full_en full extra extra_en
@@ -31,7 +31,7 @@ Name: "Content\EC_MaterialEditor";             Description: "Material Editor v3.
 Name: "Content\KKABMX";                        Description: "ECABMX (BonemodX) v5.0.6 (More sliders in maker)"                                     ; Types: full_en full extra extra_en
 Name: "Content\KSOX";                          Description: "Skin Overlay Mod v6.1.2 (Custom body, clothes and eye textures)"                      ; Types: full_en full extra extra_en
 Name: "Content\EC_InvisibleBody";              Description: "Invisible Body v1.4 (Hide character body)"                                            ; Types: full_en full extra extra_en
-Name: "Content\MoreAccessories";               Description: "MoreAccessories v1.1.0 (Allow more than 20 accessories on characters)"                ; Types: full_en full extra extra_en
+Name: "Content\MoreAccessories";               Description: "MoreAccessories v2.0.21 (Unlocks accessory limit)"                                    ; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "FIX";                                   Description: "{cm:CompFIX}"                                                                         ; Types: extra extra_en
 Name: "FIX\IllusionFixes";                     Description: "IllusionFixes v21.2.1 (Fixes to many of the game's bugs and limitations)"             ; Types: full_en full extra extra_en
@@ -44,7 +44,7 @@ Name: "FIX\OptimizeIMGUI";                     Description: "OptimizeIMGUI v1.0 
 Name: "FIX\InputHotkeyBlock";                  Description: "Input Hotkey Block v1.4 (Blocks plugin keybinds while typing)"                        ; Types: full_en full extra_en extra
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Feature";                               Description: "Improvements and additional features"                                                 ; Types: extra extra_en
-Name: "Feature\BrowserFolders";                Description: "Maker Browser Folders v3.0 (Folder support in chara/scene select screens)"            ; Types: full_en full extra extra_en
+Name: "Feature\BrowserFolders";                Description: "Maker Browser Folders v3.1 (Folder support in chara/scene select screens)"            ; Types: full_en full extra extra_en
 Name: "Feature\MakerAdditions";                Description: "EC_MakerAdditions v1.0.0 (Quality of life improvements to character maker)"           ; Types: full_en full extra extra_en
 Name: "Feature\EC_MakerSearch";                Description: "EC_MakerSearch v1.4.0 (Add search boxes to item lists in character maker)"            ; Types: full_en full extra extra_en
 Name: "Feature\EC_MakerDefaults";              Description: "Maker Defaults v1.1 (Change default character maker settings, check plugin options)"  ; Types: full_en full extra extra_en
