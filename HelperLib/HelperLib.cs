@@ -248,8 +248,15 @@ icacls ""%target%"" /grant *S-1-1-0:(OI)(CI)F /T /C /L /Q
                     "EC Sideloader Modpack",
                     "EC Sideloader Modpack - EC_UncensorSelector",
                     "EC Sideloader Modpack - Fixes",
-                    "Sideloader Modpack",
+                    "Sideloader Modpack"                        ,
+                    "Sideloader Modpack - Exclusive KK"         ,
+                    "Sideloader Modpack - Exclusive KK KKS"     ,
+                    "Sideloader Modpack - Animations"           ,
+                    "Sideloader Modpack - Fixes"                ,
                     "Sideloader Modpack - KK_MaterialEditor"    ,
+                    "Sideloader Modpack - KK_UncensorSelector"  ,
+                    "Sideloader Modpack - Maps"                 ,
+                    "Sideloader Modpack - Studio"               ,
                 };
                 
                 // Move all mods except the ones in acceptableDirs to the backup folder. Combine with any existing backup to save space
