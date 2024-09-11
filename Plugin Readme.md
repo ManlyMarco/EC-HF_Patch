@@ -18,17 +18,17 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# BepInEx v5.4.22.0
+# BepInEx v5.4.23.2
 - Short description: Plugin framework
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx
 
-# BepInEx.SplashScreen v2.0.0.0
+# BepInEx.SplashScreen v2.2.1.0
 - Short description: A loading screen on game startup with information about patchers and plugins being currently loaded
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.SplashScreen
 
-# BepisPlugins v19.3
+# BepisPlugins v20.0
 - Short description: Core plugins needed for most things
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -48,7 +48,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/CharacterReplacer
 
-# Clothing State Menu v3.0.1
+# Clothing State Menu v4.0
 - Short description: Separate control of clothing in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_ClothingStateMenu
@@ -58,13 +58,13 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Configuration Manager v18.0.1
+# Configuration Manager v18.3
 - Short description: Can change plugin settings. Press F1 to open, not visible inside HMD
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.ConfigurationManager
 
-# Custom intro voices v23
-- Short description: Bau Bau!
+# Custom intro voices v29.0
+- Short description: What the fuck is that
 - Author(s):         ManlyMarco
 - More information:  https://www.youtube.com/watch?v=SZBQ4lQFqvw
 
@@ -73,7 +73,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Drag and Drop v1.2.3
+# Drag and Drop v1.3.1
 - Short description: Allows dragging cards, scenes and outfits into game window
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/DragAndDrop
@@ -98,7 +98,7 @@
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
 
-# ECABMX (BonemodX) v5.0.6
+# ECABMX (BonemodX) v5.2.2
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
@@ -108,7 +108,7 @@
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
 
-# Enable Resize v1.5
+# Enable Resize v3.0
 - Short description: Allows resizing the game window, can mess with the UI, turn on in plugin settings
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
@@ -123,7 +123,7 @@
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/FPSCounter
 
-# Graphics Settings v1.3
+# Graphics Settings v1.3.1
 - Short description: More game settings, allows better/worse quality
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.GraphicsSettings
@@ -138,7 +138,7 @@
 - Author(s):         getraid
 - More information:  https://github.com/getraid-gg/ECIKParentUnlocker
 
-# IllusionFixes v21.2.1
+# IllusionFixes v21.6
 - Short description: Fixes to many of the game's bugs and limitations
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -168,12 +168,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# KKManager v0.22.1.0
+# KKManager v1.4.1.0
 - Short description: Manage and update mods, browse cards
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
 
-# Maker Browser Folders v3.1
+# Maker Browser Folders v3.2.3
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
@@ -183,12 +183,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v3.3.0
+# Material Editor v3.9.2.2
 - Short description: Advanced material controls for maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Message Center v1.1.1
+# Message Center v1.1.1.1
 - Short description: Allows plugins to show messages in top left corner of the game
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.Utility
@@ -198,12 +198,12 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.36
+# Modding API v1.41
 - Short description: Modding API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI/releases
 
-# MoreAccessories v2.0.21
+# MoreAccessories v2.0.21.1
 - Short description: Unlocks accessory limit
 - Author(s):         jalil49
 - More information:  https://github.com/jalil49/MoreAccessories
@@ -223,7 +223,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Pushup v1.3.2
+# Pushup v1.4.0
 - Short description: Clothes affect breast shape
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -233,7 +233,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Remove Cards To Recycle Bin v1.1.1
+# Remove Cards To Recycle Bin v2.0
 - Short description: Prevents accidentally losing cards by overwriting them
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_RemoveToRecycleBin
@@ -243,22 +243,22 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
 
-# RuntimeUnityEditor v5.1
+# RuntimeUnityEditor v5.4.1
 - Short description: Trainer and debugger
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
 
-# Skin Overlay Mod v6.1.2
+# Skin Overlay Mod v6.1.5
 - Short description: Custom body, clothes and eye textures
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
 
-# Uncensor Selector v3.11.7
+# Uncensor Selector v3.12.1
 - Short description: NEEDS Koikatsu Overlay Mods!
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# XUnity Auto Translator v5.3.0
+# XUnity Auto Translator v5.4.0
 - Short description: Custom translation loader
 - Author(s):         XUnity
 - More information:  https://github.com/bbepis/XUnity.AutoTranslator/

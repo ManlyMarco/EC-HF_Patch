@@ -1,40 +1,40 @@
 [Components]
-Name: "BepInEx";                               Description: "BepInEx v5.4.22.0 (Plugin framework)"                                                 ; Types: full_en full extra extra_en
-Name: "BepInEx\ConfigurationManager";          Description: "Configuration Manager v18.0.1 (Can change plugin settings. Press F1 to open, not visible inside HMD)"; Types: full_en full extra extra_en
-Name: "BepInEx\MessageCenter";                 Description: "Message Center v1.1.1 (Allows plugins to show messages in top left corner of the game)"; Types: full_en full extra extra_en
+Name: "BepInEx";                               Description: "BepInEx v5.4.23.2 (Plugin framework)"                                                 ; Types: full_en full extra extra_en
+Name: "BepInEx\ConfigurationManager";          Description: "Configuration Manager v18.3 (Can change plugin settings. Press F1 to open, not visible inside HMD)"; Types: full_en full extra extra_en
+Name: "BepInEx\MessageCenter";                 Description: "Message Center v1.1.1.1 (Allows plugins to show messages in top left corner of the game)"; Types: full_en full extra extra_en
 Name: "BepInEx\BepInEx_CatchUnityEventExceptions"; Description: "Catch Unity Event Exceptions v1.0 (Prevents some bugs in plugins from affecting other plugins)"; Types: full_en full extra extra_en
 Name: "BepInEx\CompatIPA";                     Description: "IPALoaderX v1.2.4 (Backwards compatibility with IPA plugins)"                         ; Types: full_en full extra extra_en
 ; Name: "BepInEx\CompatBep4";                    Description: "BepIn4Patcher v1.0.0.0 (Backwards compatibility with BepInEx4 plugins)"
 Name: "BepInEx\Dev";                           Description: "{cm:CompDev}"                                                                         
-Name: "BepInEx\BepInEx_SplashScreen";          Description: "BepInEx.SplashScreen v2.0.0.0 (A loading screen on game startup with information about patchers and plugins being currently loaded)"; Types: full_en full extra extra_en
+Name: "BepInEx\BepInEx_SplashScreen";          Description: "BepInEx.SplashScreen v2.2.1.0 (A loading screen on game startup with information about patchers and plugins being currently loaded)"; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "IllusionLaunchers";                     Description: "IllusionLaunchers v3.4.1.36419 (Custom game launcher)"                                ; Types: full_en full extra extra_en
-Name: "KKManager";                             Description: "KKManager v0.22.1.0 (Manage and update mods, browse cards)"                           ; Types: full_en full extra extra_en
+Name: "KKManager";                             Description: "KKManager v1.4.1.0 (Manage and update mods, browse cards)"                            ; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "API";                                   Description: "Modding APIs (Necessary for other mods/plugins to work properly)"                     ; Types: full_en full extra_en extra custom bare; Flags: fixed
-Name: "API\BepisPlugins";                      Description: "BepisPlugins v19.3 (Core plugins needed for most things)"                             ; Types: full_en full extra_en extra custom bare; Flags: fixed
-Name: "API\ECAPI";                             Description: "Modding API v1.36 (Modding API needed by many plugins)"                               ; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "API\BepisPlugins";                      Description: "BepisPlugins v20.0 (Core plugins needed for most things)"                             ; Types: full_en full extra_en extra custom bare; Flags: fixed
+Name: "API\ECAPI";                             Description: "Modding API v1.41 (Modding API needed by many plugins)"                               ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\XUnityResourceRedirector";          Description: "XUnity Resource Redirector v2.1.0 (Modding API for resource overriding)"              ; Types: full_en full extra_en extra custom bare; Flags: fixed
 Name: "API\ModBoneImplantor";                  Description: "Mod Bone Implantor v0.2.4 (Needed by some clothing mods to add dynamic bones)"        ; Types: full_en full extra_en extra custom bare; Flags: fixed
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Name: "AT";                                    Description: "XUnity Auto Translator v5.3.0 (Custom translation loader)"                            ; Types: full extra full_en extra_en custom
+Name: "AT";                                    Description: "XUnity Auto Translator v5.4.0 (Custom translation loader)"                            ; Types: full extra full_en extra_en custom
 Name: "AT\TL";                                 Description: "{cm:CompTL}"                                                                          ; Types: full_en extra_en
 Name: "AT\TL\EnglishTranslation";              Description: "ManlyMarco/EmotionCreatorsTranslation v2.1"                                           ; Types: full_en extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "UNC";                                   Description: "{cm:CompUNC}"                                                                         ; Types: full_en full extra_en extra
-Name: "UNC\Selector";                          Description: "Uncensor Selector v3.11.7 (NEEDS Koikatsu Overlay Mods!)"                             ; Types: full_en full extra_en extra
+Name: "UNC\Selector";                          Description: "Uncensor Selector v3.12.1 (NEEDS Koikatsu Overlay Mods!)"                             ; Types: full_en full extra_en extra
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Content";                               Description: "Additional content for character and scene creation (Needed to properly load most character cards and scenes)"; Types: full_en full extra_en extra
 Name: "Content\EC_ClothingUnlocker";           Description: "Clothing Unlocker v2.0.2 (Can use female clothes on males)"                           ; Types: full_en full extra extra_en
 Name: "Content\EC_HairAccessoryCustomizer";    Description: "Hair Accessory Customizer v1.1.7 (Color matching for hair accessories)"               ; Types: full_en full extra extra_en
-Name: "Content\EC_MaterialEditor";             Description: "Material Editor v3.3.0 (Advanced material controls for maker and studio)"             ; Types: full_en full extra extra_en
-Name: "Content\KKABMX";                        Description: "ECABMX (BonemodX) v5.0.6 (More sliders in maker)"                                     ; Types: full_en full extra extra_en
-Name: "Content\KSOX";                          Description: "Skin Overlay Mod v6.1.2 (Custom body, clothes and eye textures)"                      ; Types: full_en full extra extra_en
+Name: "Content\EC_MaterialEditor";             Description: "Material Editor v3.9.2.2 (Advanced material controls for maker and studio)"           ; Types: full_en full extra extra_en
+Name: "Content\KKABMX";                        Description: "ECABMX (BonemodX) v5.2.2 (More sliders in maker)"                                     ; Types: full_en full extra extra_en
+Name: "Content\KSOX";                          Description: "Skin Overlay Mod v6.1.5 (Custom body, clothes and eye textures)"                      ; Types: full_en full extra extra_en
 Name: "Content\EC_InvisibleBody";              Description: "Invisible Body v1.4 (Hide character body)"                                            ; Types: full_en full extra extra_en
-Name: "Content\MoreAccessories";               Description: "MoreAccessories v2.0.21 (Unlocks accessory limit)"                                    ; Types: full_en full extra extra_en
+Name: "Content\MoreAccessories";               Description: "MoreAccessories v2.0.21.1 (Unlocks accessory limit)"                                  ; Types: full_en full extra extra_en
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "FIX";                                   Description: "{cm:CompFIX}"                                                                         ; Types: extra extra_en
-Name: "FIX\IllusionFixes";                     Description: "IllusionFixes v21.2.1 (Fixes to many of the game's bugs and limitations)"             ; Types: full_en full extra extra_en
+Name: "FIX\IllusionFixes";                     Description: "IllusionFixes v21.6 (Fixes to many of the game's bugs and limitations)"               ; Types: full_en full extra extra_en
 Name: "FIX\EC_ExtraCharacters";                Description: "EC_ExtraCharacters v1.0.3 (Lets you to have more than the 8 characters)"              ; Types: full_en full extra extra_en
 Name: "FIX\EC_RimRemover";                     Description: "Rim Remover v1.1 (Removes rim lighting around the edges, looks better to some people, enable in plugin settings)"; Types: full_en full extra extra_en
 Name: "FIX\ECAlternativeNodeVerification";     Description: "Alternative Node Verification v1.0.0.1 (Fixes large node graphs crashing scene save)" ; Types: full_en full extra extra_en
@@ -44,22 +44,22 @@ Name: "FIX\OptimizeIMGUI";                     Description: "OptimizeIMGUI v1.0 
 Name: "FIX\InputHotkeyBlock";                  Description: "Input Hotkey Block v1.4 (Blocks plugin keybinds while typing)"                        ; Types: full_en full extra_en extra
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Name: "Feature";                               Description: "Improvements and additional features"                                                 ; Types: extra extra_en
-Name: "Feature\BrowserFolders";                Description: "Maker Browser Folders v3.1 (Folder support in chara/scene select screens)"            ; Types: full_en full extra extra_en
+Name: "Feature\BrowserFolders";                Description: "Maker Browser Folders v3.2.3 (Folder support in chara/scene select screens)"          ; Types: full_en full extra extra_en
 Name: "Feature\MakerAdditions";                Description: "EC_MakerAdditions v1.0.0 (Quality of life improvements to character maker)"           ; Types: full_en full extra extra_en
 Name: "Feature\EC_MakerSearch";                Description: "EC_MakerSearch v1.4.0 (Add search boxes to item lists in character maker)"            ; Types: full_en full extra extra_en
 Name: "Feature\EC_MakerDefaults";              Description: "Maker Defaults v1.1 (Change default character maker settings, check plugin options)"  ; Types: full_en full extra extra_en
-Name: "Feature\EC_Pushup";                     Description: "Pushup v1.3.2 (Clothes affect breast shape)"                                          ; Types: full_en full extra extra_en
-Name: "Feature\EC_RemoveToRecycleBin";         Description: "Remove Cards To Recycle Bin v1.1.1 (Prevents accidentally losing cards by overwriting them)"; Types: full_en full extra extra_en
-Name: "Feature\GraphicsSettings";              Description: "Graphics Settings v1.3 (More game settings, allows better/worse quality)"             ; Types: full_en full extra extra_en
+Name: "Feature\EC_Pushup";                     Description: "Pushup v1.4.0 (Clothes affect breast shape)"                                          ; Types: full_en full extra extra_en
+Name: "Feature\EC_RemoveToRecycleBin";         Description: "Remove Cards To Recycle Bin v2.0 (Prevents accidentally losing cards by overwriting them)"; Types: full_en full extra extra_en
+Name: "Feature\GraphicsSettings";              Description: "Graphics Settings v1.3.1 (More game settings, allows better/worse quality)"           ; Types: full_en full extra extra_en
 Name: "Feature\MuteInBackground";              Description: "Mute In Background v1.1 (Mute the game when it's not in focus, turn on in plugin settings)"; Types: full_en full extra extra_en
 Name: "Feature\CharacterReplacer";             Description: "Character Replacer v1.6.2 (Replace default characters in maker)"                      ; Types: full_en full extra extra_en
 Name: "Feature\CharacterExport";               Description: "Character Export v1.0 (Export character cards from a scene)"                          ; Types: full_en full extra extra_en
 Name: "Feature\EC_Profile";                    Description: "Profile v1.0.3 (A textbox in maker to write a character description)"                 ; Types: full_en full extra extra_en
 Name: "Feature\EC_ItemBlacklist";              Description: "Item Blacklist v3.0 (Right click in maker lists to hide items)"                       ; Types: full_en full extra extra_en
-Name: "Feature\EnableResize";                  Description: "Enable Resize v1.5 (Allows resizing the game window, can mess with the UI, turn on in plugin settings)"; Types: extra extra_en
+Name: "Feature\EnableResize";                  Description: "Enable Resize v3.0 (Allows resizing the game window, can mess with the UI, turn on in plugin settings)"; Types: extra extra_en
 Name: "Feature\BepInEx_EnableFullScreenToggle"; Description: "Enable Full Screen Toggle v1.0 (Enables alt+enter to toggle fullscreen)"              ; Types: extra extra_en
-Name: "Feature\DragAndDrop_EmotionCreators";   Description: "Drag and Drop v1.2.3 (Allows dragging cards, scenes and outfits into game window)"    ; Types: full_en full extra extra_en
-Name: "Feature\EC_ClothingStateMenu";          Description: "Clothing State Menu v3.0.1 (Separate control of clothing in maker)"                   ; Types: full_en full extra extra_en
+Name: "Feature\DragAndDrop_EmotionCreators";   Description: "Drag and Drop v1.3.1 (Allows dragging cards, scenes and outfits into game window)"    ; Types: full_en full extra extra_en
+Name: "Feature\EC_ClothingStateMenu";          Description: "Clothing State Menu v4.0 (Separate control of clothing in maker)"                     ; Types: full_en full extra extra_en
 Name: "Feature\EC_EyeControl";                 Description: "Eye Control v1.0.1 (Allows making of closed eyed/not blinking charas)"                ; Types: full_en full extra extra_en
 Name: "Feature\EC_Autosave";                   Description: "Autosave v1.1.1 (Autosave for chara maker)"                                           ; Types: full_en full extra extra_en
 Name: "Feature\EC_AccessoryQuickRemove";       Description: "Accessory Quick Remove v1.0 (Accessory Quick Remove for Emotion Creators)"            ; Types: full_en full extra extra_en
@@ -71,8 +71,8 @@ Name: "Feature\EnableFullScreenToggle";        Description: "Enable Full Screen 
 Name: "MISC";                                  Description: "{cm:CompMISC}"                                                                        
 Name: "MISC\FIX";                              Description: "Fix game registry (e.g. after moving to different folder)"                            ; Types: bare full_en full extra extra_en
 Name: "MISC\FPSCounter";                       Description: "FPS Counter v3.1 (FPS display and simple plugin profiler)"                            ; Types: full_en full extra extra_en
-Name: "MISC\Editor";                           Description: "RuntimeUnityEditor v5.1 (Trainer and debugger)"                                       ; Types: full_en full extra extra_en
-Name: "MISC\Memes";                            Description: "Custom intro voices v23 (Bau Bau!)"                                                   ; Types: extra extra_en
+Name: "MISC\Editor";                           Description: "RuntimeUnityEditor v5.4.1 (Trainer and debugger)"                                     ; Types: full_en full extra extra_en
+Name: "MISC\Memes";                            Description: "Custom intro voices v29.0 (What the fuck is that)"                                    ; Types: extra extra_en
 
 [Files]
 Source: "Input\_Plugins\_out\EC_BepisPlugins\*";            DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: API\BepisPlugins; Excludes: "manifest.xml"
@@ -107,7 +107,7 @@ Source: "Input\_Plugins\_out\EC_MakerSearch\*";             DestDir: "{app}"; Fl
 Source: "Input\_Plugins\_out\EC_MakerDefaults\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EC_MakerDefaults; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\EC_Pushup\*";                  DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EC_Pushup; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\EC_RemoveToRecycleBin\*";      DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\EC_RemoveToRecycleBin; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\GraphicsSettings\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\GraphicsSettings; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\BepInEx.GraphicsSettings\*";   DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\GraphicsSettings; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\BepInEx.MuteInBackground\*";   DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\MuteInBackground; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\EmotionCreators_CharacterReplacer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\CharacterReplacer; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\EC_CharacterExport\*";         DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: Feature\CharacterExport; Excludes: "manifest.xml"
@@ -129,10 +129,10 @@ Source: "Input\_Plugins\_out\FPSCounter\*";                 DestDir: "{app}"; Fl
 Source: "Input\_Plugins\_out\RuntimeUnityEditor_BepInEx5\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Editor; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\Memes\*";                      DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: MISC\Memes; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\BepInEx.CatchUnityEventExceptions\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\BepInEx_CatchUnityEventExceptions; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\BepInEx.ConfigurationManager\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\ConfigurationManager; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\BepInEx.ConfigurationManager.BepInEx5\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\ConfigurationManager; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\BepInEx.IPALoader\*";          DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\CompatIPA; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\BepInEx.MessageCenter\*";      DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\MessageCenter; Excludes: "manifest.xml"
-Source: "Input\_Plugins\_out\BepInEx.SplashScreen\*";       DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\BepInEx_SplashScreen; Excludes: "manifest.xml"
+Source: "Input\_Plugins\_out\BepInEx.SplashScreen_BepInEx5\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx\BepInEx_SplashScreen; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\BepInEx_x64\*";                DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: BepInEx; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\IllusionLaunchers_Emotion.Creators\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: IllusionLaunchers; Excludes: "manifest.xml"
 Source: "Input\_Plugins\_out\KKManager\*";                  DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: KKManager; Excludes: "manifest.xml"
