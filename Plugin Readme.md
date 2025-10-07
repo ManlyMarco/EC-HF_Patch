@@ -1,4 +1,4 @@
-# Accessory Clothes v1.0.2
+# Accessory Clothes v1.0.3
 - Short description: Accessory Clothes for Emotion Creators
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -13,22 +13,22 @@
 - Author(s):         getraid
 - More information:  https://github.com/getraid-gg/ECAlternativeNodeVerification
 
-# Autosave v1.1.1
+# Autosave v2.0
 - Short description: Autosave for chara maker
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# BepInEx v5.4.23.2
+# BepInEx v5.4.23.4
 - Short description: Plugin framework
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/BepInEx
 
-# BepInEx.SplashScreen v2.2.1.0
+# BepInEx.SplashScreen v3.0.0.0
 - Short description: A loading screen on game startup with information about patchers and plugins being currently loaded
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.SplashScreen
 
-# BepisPlugins v20.0
+# BepisPlugins v21.1.1
 - Short description: Core plugins needed for most things
 - Author(s):         bbepis
 - More information:  https://github.com/bbepis/BepisPlugins
@@ -43,12 +43,12 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Character Replacer v1.6.2
+# Character Replacer v1.7
 - Short description: Replace default characters in maker
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/CharacterReplacer
 
-# Clothing State Menu v4.0
+# Clothing State Menu v5.2
 - Short description: Separate control of clothing in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_ClothingStateMenu
@@ -58,13 +58,13 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Configuration Manager v18.3
+# Configuration Manager v18.4.1
 - Short description: Can change plugin settings. Press F1 to open, not visible inside HMD
 - Author(s):         BepInEx
 - More information:  https://github.com/BepInEx/BepInEx.ConfigurationManager
 
-# Custom intro voices v29.0
-- Short description: What the fuck is that
+# Custom intro voices v32.0
+- Short description: Parasocial for AI vtubers
 - Author(s):         ManlyMarco
 - More information:  https://www.youtube.com/watch?v=SZBQ4lQFqvw
 
@@ -98,7 +98,7 @@
 - Author(s):         Mantas-2155X aka 2155X
 - More information:  https://www.patreon.com/2155X
 
-# ECABMX (BonemodX) v5.2.2
+# ECABMX (BonemodX) v5.3
 - Short description: More sliders in maker
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/KKABMX
@@ -118,7 +118,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# FPS Counter v3.1
+# FPS Counter v3.3.1
 - Short description: FPS display and simple plugin profiler
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/FPSCounter
@@ -133,12 +133,17 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
+# HeightBarX v4.0
+- Short description: Shows a height measure bar in the character maker
+- Author(s):         ManlyMarco
+- More information:  https://github.com/ManlyMarco/Illusion_HeightBar
+
 # IK Parent Unlocker v1.0.0
 - Short description: Allows reparenting any IK target in H nodes
 - Author(s):         getraid
 - More information:  https://github.com/getraid-gg/ECIKParentUnlocker
 
-# IllusionFixes v21.6
+# IllusionFixes v22.0.4
 - Short description: Fixes to many of the game's bugs and limitations
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionFixes
@@ -147,6 +152,11 @@
 - Short description: Custom game launcher
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/IllusionLaunchers
+
+# IMGUI_HiDPI_Patcher v0.0.4.0
+- Short description: Increases text size in plugin windows (!Known to cause issues with some plugins!)
+- Author(s):         y=soro
+- More information:  https://github.com/y0soro/Unity.IMGUI.HiDPI.Patcher
 
 # Input Hotkey Block v1.4
 - Short description: Blocks plugin keybinds while typing
@@ -163,17 +173,22 @@
 - Author(s):         https://github.com/BepInEx
 - More information:  https://github.com/BepInEx/IPALoaderX
 
-# Item Blacklist v3.0
+# Item Blacklist v3.0.1
 - Short description: Right click in maker lists to hide items
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# KKManager v1.4.1.0
+# KKManager v1.5.1.0
 - Short description: Manage and update mods, browse cards
 - Author(s):         https://github.com/IllusionMods
 - More information:  https://github.com/IllusionMods/KKManager
 
-# Maker Browser Folders v3.2.3
+# LoveMachine v4.0.0
+- Short description: Adds support for buttplug.io compatible strokers and vibrators
+- Author(s):         Sauceke
+- More information:  https://github.com/Sauceke/LoveMachine
+
+# Maker Browser Folders v3.3
 - Short description: Folder support in chara/scene select screens
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion_BrowserFolders
@@ -183,7 +198,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Material Editor v3.9.2.2
+# Material Editor v3.13.5
 - Short description: Advanced material controls for maker and studio
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -198,7 +213,7 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/ModBoneImplantor
 
-# Modding API v1.41
+# Modding API v1.43
 - Short description: Modding API needed by many plugins
 - Author(s):         ManlyMarco
 - More information:  https://github.com/IllusionMods/IllusionModdingAPI/releases
@@ -223,7 +238,7 @@
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
 
-# Pushup v1.4.0
+# Pushup v1.5.2
 - Short description: Clothes affect breast shape
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins
@@ -243,17 +258,17 @@
 - Author(s):         IllusionMods
 - More information:  https://github.com/IllusionMods/RimRemover
 
-# RuntimeUnityEditor v5.4.1
+# RuntimeUnityEditor v6.1.1
 - Short description: Trainer and debugger
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/RuntimeUnityEditor
 
-# Skin Overlay Mod v6.1.5
+# Skin Overlay Mod v7.0.3
 - Short description: Custom body, clothes and eye textures
 - Author(s):         ManlyMarco
 - More information:  https://github.com/ManlyMarco/Illusion-Overlay-Mods
 
-# Uncensor Selector v3.12.1
+# Uncensor Selector v3.12.3
 - Short description: NEEDS Koikatsu Overlay Mods!
 - Author(s):         DeathWeasel1337
 - More information:  https://github.com/DeathWeasel1337/KK_Plugins

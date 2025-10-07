@@ -6,7 +6,7 @@
 ;--------------------------------------------Full game name for naming patch itself and desktop icons
 #define NAME "EmotionCreators"
 ;----------------------------------------------------------------------------Current HF Patch version
-#define VERSION "1.7"
+#define VERSION "1.8"
 ;-----------------------------------------Sideloader modpack directory
 #define GameDir "L:\HFpatchmaking\KK\MODSOURCE"
 ;#define ModsDir "F:\Games\KoikatsuP\mods"
@@ -39,10 +39,11 @@ LZMAUseSeparateProcess=yes
 ;LZMADictionarySize=208576
 LZMADictionarySize=208576
 LZMANumFastBytes=273
-LZMANumBlockThreads=16
+LZMANumBlockThreads=8
 #ifndef LITE
 DiskSpanning=yes
 #endif
+DiskSliceSize=4294967295
 DefaultDirName={reg:HKCU\Software\Illusion\emotioncreators\emotioncreators,INSTALLDIR}
 
 WindowResizable=yes
@@ -115,6 +116,7 @@ Source: "Input\_TL\_lang ch\*";                             DestDir: "{app}"; Fl
 Source: "Input\_TL\_lang eng\*";                            DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Languages: en
 Source: "Input\_TL\EmotionCreatorsTranslation\*";           DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: AT\TL\EnglishTranslation; Excludes: "UserData"
 ; -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Source: "Input\marco.kkapi.cfg"; DestDir: "{app}\BepInEx\config"; DestName: "marco.kkapi.cfg"; Flags: onlyifdoesntexist solidbreak
 
 [InstallDelete]
 ; Clean up old translations
@@ -234,7 +236,11 @@ Root: HKCU; Subkey: "Software\Illusion\emotioncreators\emotioncreators"; ValueTy
 [Tasks]
 Name: desktopicon; Description: "{cm:TaskIcon}"; Flags: unchecked
 Name: delete; Description: "{cm:TaskDelete}";
+#ifndef LITE
 Name: delete\Sidemods; Description: "{cm:TaskDeleteSide}"
+#else
+Name: delete\Sidemods; Description: "{cm:TaskDeleteSide}"; Flags: unchecked
+#endif
 Name: delete\Plugins; Description: "{cm:TaskDeletePlugins}";
 Name: delete\Config; Description: "{cm:TaskDeletePluginSettings}"; Flags: unchecked
 Name: delete\scripts; Description: "Delete old scripts"; Flags: unchecked
